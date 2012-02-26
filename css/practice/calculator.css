@@ -1,0 +1,52 @@
+#calculator { float: left; }
+#calculator ul { list-style: none; margin: 0; padding: 0; }
+#calculator li { position: relative; font: normal 12px arial; padding: 4px 20px 3px 25px; border: solid 1px transparent; }
+#calculator li a { display: block; position: relative; color: #000; text-decoration: none; }
+#calculator li kbd { position: absolute; font: normal 12px arial; right: 0; }
+#calculator li ul { display: none; position: absolute; top: 0; left: 100%; background: #F0F0F0; width: 210px; padding: 2px; box-shadow: 3px 3px 1px #999; }
+#calculator li:hover { background: #E8EEF6; border: solid 1px #AECFF7; border-radius: 3px; }
+#calculator li:hover > ul { display: block; }
+
+#calculator nav > ul { background: #D4DBEE; width: 212px; height: 20px; border-bottom: solid 1px #B6BCCC; }
+#calculator nav > ul > li { float: left; color: #000; font: normal 12px/14px arial; margin: 2px 0 0 2px; padding: 2px 7px 0; }
+#calculator nav > ul > li:hover { background: transparent; border-color: #999; }
+#calculator nav > ul > li:active { border-color: #666; box-shadow: 1px 1px 2px #666 inset; }
+#calculator nav > ul > li > ul { top: 17px; bottom: auto; left: 0; right: auto; }
+
+#calculator form { overflow: hidden; background: #D9E4F1; width: 206px; padding: 10px 3px; }
+
+#calculator input[type=text] { background: #E5EFFA; color: #000; font-size: 22px; text-align: right; vertical-align: bottom; width: 178px; height: 38px; margin: 0 8px; padding: 10px 5px 0; border: solid 1px #999; border-radius: 2px; }
+
+#calculator fieldset { margin-left: 2px; padding: 0; border: 0 none; }
+#calculator fieldset legend { display: none; }
+#calculator input[type=button] {
+	float: left;
+	background: #D5E0EE;
+	color: #333;
+	font: normal 11px/28px verdana;
+	text-align: center;
+	vertical-align: middle;
+	width: 32px;
+	height: 28px;
+	margin: 7px 0 0 7px;
+	padding: 0;
+	box-shadow: 0 0 1px #999;
+	border: solid 1px #999;
+	border-radius: 2px;
+	transition: background .4s ease, border-color .4s ease, box-shadow .4s ease;
+	-moz-transition: background .4s ease, border-color .4s ease, box-shadow .4s ease;
+	-webkit-transition: background .4s ease, border-color .4s ease, box-shadow .4s ease;
+	-o-transition: background .4s ease, border-color .4s ease, box-shadow .4s ease;
+}
+#calculator input[type=button]:hover { background: #FFE7CC; border-color: #FFDB00; box-shadow: 0 0 1px #FFDB00; cursor: pointer; transition-duration: .3s; -moz-transition-duration: .3s; -webkit-transition-duration: .3s; -o-transition-duration: .3s; }
+#calculator input[type=button]:active { background: #F4CC87; border-color: #C29B29; box-shadow: 0 0 1px #C29B29; transition-duration: .2s; -moz-transition-duration: .2s; -webkit-transition-duration: .2s; -o-transition-duration: .2s; }
+
+#calculator input[name=number_0] { width: 71px; }
+#calculator input[name=equals] { float: right; font-size: 12px; line-height: 55px; height: 63px; margin-left: 0; margin-right: 7px; }
+#calculator input[name^=number],
+#calculator input[name=decimal] { background: #F2FBFF; font-size: 13px; }
+
+#calculator_state { float: left; font: normal 12px courier; margin-left: 10px; }
+#calculator_state:before { display: block; content: "State"; font: bold 20px/30px arial; }
+
+#status { float: left; margin: 20px; }

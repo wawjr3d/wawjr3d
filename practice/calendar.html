@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>calendar | wawjr3d</title>
+
+	<!--#include virtual="/includes/head.html" -->
+
+	<style type="text/css">
+
+		table.month { display: inline; float: left; width: 130px; height: 125px; margin: 0 5px; border-collapse: collapse; }
+		table.month td { background: #C2C2C2; font: normal 12px/12px arial; text-align: center; vertical-align: middle; padding: 2px; border-top: solid 1px #FFFFFF; border-left: solid 1px #FFFFFF; }
+		table.month td[data-filter] { background: #000000; color: #FFFFFF; }
+
+		footer { clear: both; }
+
+	</style>
+</head>
+<body>
+	<div id="container">
+		<!--#include virtual="/includes/header.html" -->
+
+		<div id="content">
+			<h1>practice</h1>
+			<h2>Calendar</h2>
+
+		</div>
+
+		<!--#include virtual="/includes/footer.html" -->
+	</div>
+
+	<script type="text/javascript" src="/js/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript">
+		(function($) {
+
+			function buildCalendarString(options) {
+
+				var settings = $.extend({
+					start_year : 2011,
+					start_month : 0,
+					start_date : 1,
+					end_year : 2012,
+					end_month : 0,
+					end_date : 1
+				}, options);
+
+				var month_displays = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+					padding_cell_string = "<td>&nbsp;</td>",
+					padding_row_string = (function() {
+						padding_row_string_builder = [];
+
+						padding_row_string_builder.push("<tr>");
+						for (var i = 0; i < 7; i++) {
+							padding_row_string_builder.push(padding_cell_string);
+						}
+						padding_row_string_builder.push("</tr>");
+
+						return padding_row_string_builder.join("");
+					})(),
+
+					current_date = new Date(settings.start_year, settings.start_month, settings.start_date),
+					end_date = new Date(settings.end_year, settings.end_month, settings.end_date),
+
+					current_month = -1;
+					rowCount = 0,
+
+					calendar_display_string_builder = [];
+
+				function buildDateString(date) {
+					return "<td data-filter='" + date.getDate() + "'>" + date.getDate() + "</td>";
+				}
+
+				function incrementDate(date) {
+					date.setDate(date.getDate() + 1);
+				}
+
+				while (current_date < end_date) {
+
+					if (current_month != current_date.getMonth()) {
+						current_month = current_date.getMonth();
+
+						calendar_display_string_builder.push("<table id='" + month_displays[current_month].toLowerCase() + "-" + current_date.getFullYear() + "' class='month'>");
+						calendar_display_string_builder.push("<tr><th colspan='7'>");
+						calendar_display_string_builder.push(month_displays[current_month]);
+						calendar_display_string_builder.push(" ");
+						calendar_display_string_builder.push(current_date.getFullYear());
+						calendar_display_string_builder.push("</th></tr>");
+					}
+
+					if (current_date.getDay() == 0 || current_date.getDate() == 1) {
+
+						calendar_display_string_builder.push("<tr>");
+						rowCount++;
+
+						if (current_date.getDate() == 1) {
+							for (var i = 0, padding_cells = current_date.getDay(); i < padding_cells; i++) {
+								calendar_display_string_builder.push(padding_cell_string);
+							}
+						}
+					}
+
+
+					calendar_display_string_builder.push(buildDateString(current_date));
+
+					if (current_date.getDay() == 6) {
+						calendar_display_string_builder.push("</tr>");
+					}
+
+
+					incrementDate(current_date);
+
+					if (current_month != current_date.getMonth() || current_date == end_date) {
+						if (current_date.getDay() != 0) {
+							for (var i = 0, padding_cells = 7 - current_date.getDay(); i < padding_cells; i++) {
+								calendar_display_string_builder.push(padding_cell_string);
+							}
+
+							calendar_display_string_builder.push("</tr>");
+						}
+
+						for (var i = 0, howmany = 6 - rowCount; i < howmany; i++) {
+							calendar_display_string_builder.push(padding_row_string);
+						}
+
+						rowCount = 0;
+
+						calendar_display_string_builder.push("</table>");
+					}
+
+				}
+
+				return calendar_display_string_builder.join("");
+			}
+
+			$(function() {
+				$("#content").append(buildCalendarString({
+					end_month : 6,
+					end_date : 15
+				}));
+			});
+
+		})(jQuery);
+	</script>
+</body>
+</html>

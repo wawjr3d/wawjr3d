@@ -1,0 +1,20 @@
+body { background: #FFF; text-align: center; vertical-align: middle; }
+
+#head { display: inline-block; position: absolute; top: 0; bottom: 0; left: 0; right: 0; background: yellow; text-align: center; width: 400px; height: 400px; border: solid 10px #000; margin: auto; border-radius: 250px; box-shadow: 0 0 20px #666; }
+
+#head {
+	background: -webkit-gradient(radial, 110 30%, 10, 110 30%, 100, from(#fff), to(yellow)) #f90;
+	background: -moz-radial-gradient(110px 30%, circle, #fff 10px, yellow 100px);
+}
+
+#head * { display: inline-block; }
+
+#head .eye { background: #000; color: #000; font: bold 30px/110px arial; width: 30px; height: 110px; margin-top: 70px; border: solid 10px #000; border-radius: 200px; }
+#head .left.eye { margin-right: 15px; margin-left: 130px; }
+#head .right.eye { margin-left: 15px; margin-right: 130px; }
+
+#head .dimple { position: relative; width: 30px; height: 30px; margin-bottom: 80px; }
+#head .left.dimple { left: 30px; border-left: solid 5px #000; border-radius: 50px 10px; }
+#head .right.dimple { right: 30px; border-right: solid 5px #000; border-radius: 10px 50px; }
+#head .mouth { width: 240px; height: 250px; margin-top: -135px; border-bottom: solid 5px #000; border-radius: 250px; }
+

@@ -1,0 +1,12 @@
+#content { position: relative; }
+
+#island { position: absolute; top: 0; left: 0; background: rgba(0, 155, 255, 0.3); width: 100%; height: 100%; }
+#island fieldset { position: absolute; top: 0; bottom: 0; left: 0; right: 0; background: transparent url(/images/bq_map_bequia.png) no-repeat center center; width: 400px; height: 428px; margin: auto; z-index: 10; border: 0 none; }
+#island legend { float: left; text-align: center; width: 100%; margin: 5px 0; }
+#island input { display: block; clear: left; margin: 5px auto; }
+
+#words { position: relative; width: 100%; padding: 20px; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+#words li {display: inline-block; }
+#words li a { display: inline-block; position: relative; font-weight: bold; text-shadow: 1px 1px 10px #BBB; margin: 10px 25%; z-index: -1; }
+#words li:hover a { z-index: 1; }
+#words li a:hover { background: #000; }

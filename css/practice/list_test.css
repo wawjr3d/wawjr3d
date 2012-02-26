@@ -1,0 +1,8 @@
+#content ul { position: relative; width: 500px; margin: 50px 0 0 20px; }
+#content li { display: block; position: relative; *font-size: 0; height: 30px; border-top: solid 1px #000; z-index: 0; }
+#content li:first-child { border-top: 0 none; }
+#content span { float: left; *font-size: 16px; line-height: 30px; }
+#content .name { width: 90px; padding: 0 5px; }
+#content .text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 400px; }
+#content li:hover { z-index: 1; }
+#content li:hover .long { position: absolute; top: -10px; background: #FFF; line-height: 1.2em; width: 500px; padding: 5px; border: solid 1px #000; white-space: normal; z-index: 99; }
