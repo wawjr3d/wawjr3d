@@ -24,7 +24,7 @@ body {
 }
 
 #head {
-	background: -webkit-gradient(radial, 300 30%, 10, 300 30%, 100, from(#fff), to(yellow) ) #f90;
+	background: -webkit-radial-gradient(75% 30%, circle, #fff 1em, yellow 25%);
 	background: -moz-radial-gradient(75% 30%, circle, #fff 1em, yellow 25%);
 }
 
