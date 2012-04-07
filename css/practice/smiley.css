@@ -1,20 +1,117 @@
-body { background: #FFF; text-align: center; vertical-align: middle; }
-
-#head { display: inline-block; position: absolute; top: 0; bottom: 0; left: 0; right: 0; background: yellow; text-align: center; width: 400px; height: 400px; border: solid 10px #000; margin: auto; border-radius: 250px; box-shadow: 0 0 20px #666; }
+#head {
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+	background: yellow;
+	font-size: 10px;
+	text-align: center; 
+	width: 40em;
+	height: 40em;
+	border: solid 1em #000;
+	margin: auto;
+	border-radius: 25em;
+	box-shadow: 0 0 2em #666;
+}
 
 #head {
-	background: -webkit-gradient(radial, 110 30%, 10, 110 30%, 100, from(#fff), to(yellow)) #f90;
-	background: -moz-radial-gradient(110px 30%, circle, #fff 10px, yellow 100px);
+	background: -webkit-radial-gradient(25% 30%, circle, #fff 1em, yellow 25%);
+	background: -moz-radial-gradient(25% 30%, circle, #fff 1em, yellow 25%);
 }
 
 #head * { display: inline-block; }
 
-#head .eye { background: #000; color: #000; font: bold 30px/110px arial; width: 30px; height: 110px; margin-top: 70px; border: solid 10px #000; border-radius: 200px; }
-#head .left.eye { margin-right: 15px; margin-left: 130px; }
-#head .right.eye { margin-left: 15px; margin-right: 130px; }
+#head .eye {
+	position: relative;
+	background: #FFF;
+	color: #000;
+	font: bold 1em/11em arial;
+	width: 5em;
+	height: 11em;
+	margin-top: 7em;
+	border: solid 1em #000;
+	border-radius: 20em;
+}
 
-#head .dimple { position: relative; width: 30px; height: 30px; margin-bottom: 80px; }
-#head .left.dimple { left: 30px; border-left: solid 5px #000; border-radius: 50px 10px; }
-#head .right.dimple { right: 30px; border-right: solid 5px #000; border-radius: 10px 50px; }
-#head .mouth { width: 240px; height: 250px; margin-top: -135px; border-bottom: solid 5px #000; border-radius: 250px; }
+#head .eye:before {
+	content: "eyebrow";
+	position: absolute;
+	top: -10em;
+	background: transparent;
+	color: #FFF;
+	text-indent: -999em;
+	width: 7em;
+	height: 11em;
+	margin-top: 7em;
+	border-top: solid 1em #000;
+	border-radius: 20em;
+}
 
+#head .eye:after {
+	content: "cornea";
+	position: absolute;
+	bottom: -.5em;
+	left: .5em;
+	background: #000;
+	color: #000;
+	text-indent: -999em;
+	width: 5em;
+	height: 5em;
+	margin-top: 7em;
+	border-top: solid 1em #000;
+	border-radius: 20em;
+}
+
+#head .left.eye {
+	margin-right: 1.5em;
+	margin-left: 11em;
+}
+
+#head .left.eye:before {
+	left: -2em;
+	border-radius: 25em 5em 20em 20em;
+}
+
+#head .right.eye {
+	margin-left: 1.5em;
+	margin-right: 11em;
+}
+
+#head .right.eye:before {
+	right: -2em;
+	border-radius: 5em 25em 20em 20em;
+}
+
+#head .mouth:before {
+	content: "";
+	position: absolute;
+	bottom: 30%;
+	left: -1em;
+	width: 3em;
+	height: 3em;
+	border-left: solid .5em #000;
+	border-radius: 5em 1em;
+}
+
+#head .mouth:after {
+	content: "";
+	position: absolute;
+	bottom: 30%;
+	right: -1em; 
+	width: 3em;
+	height: 3em;
+	border-right: solid .5em #000;
+	border-radius: 1em 5em;
+}
+
+#head .mouth {
+	position: relative;
+	width: 24em;
+	height: 25em;
+	margin-top: -14em;
+	border-bottom: solid .5em #000;
+	border-radius: 25em;
+}
