@@ -55,7 +55,6 @@
 	text-indent: -999em;
 	width: 5em;
 	height: 5em;
-	
 	border-top: solid 1em #000;
 	border-radius: 20em;
 }
@@ -133,4 +132,25 @@
 
 .lying .eye:after {
 	top: -.5em;
+}
+
+.honest .eye:after {
+	left: -.5em;
+	right: auto;
+}
+
+.angry .left.eye:before {
+	-ms-transform: rotate(10deg);
+	-moz-transform: rotate(10deg);
+	-webkit-transform: rotate(10deg);
+	transform: rotate(10deg);
+	border-radius: 0;
+}
+
+.angry .right.eye:before {
+	-ms-transform: rotate(-10deg);
+	-moz-transform: rotate(-10deg);
+	-webkit-transform: rotate(-10deg);
+	transform: rotate(-10deg);
+	border-radius: 0;
 }
