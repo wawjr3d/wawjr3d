@@ -1,0 +1,136 @@
+.smiley {
+	display: inline-block;
+	overflow: hidden;
+	background: yellow;
+	background: -webkit-radial-gradient(75% 30%, circle, #fff 1em, yellow 25%);
+	background: -moz-radial-gradient(75% 30%, circle, #fff 1em, yellow 25%);
+	font-size: 5px;
+	text-align: center; 
+	width: 40em;
+	height: 40em;
+	border: solid 1em #000;
+	margin: auto;
+	border-radius: 25em;
+	-moz-box-shadow: 0 0 2em #666;
+	-webkit-box-shadow: 0 0 2em #666;
+	box-shadow: 0 0 2em #666;
+}
+
+.smiley * {
+	display: inline-block;
+}
+
+.smiley .eye {
+	position: relative;
+	background: #FFF;
+	color: #000;
+	font: bold 1em/11em arial;
+	width: 5em;
+	height: 11em;
+	margin-top: 7em;
+	border: solid 1em #000;
+	border-radius: 20em;
+}
+
+.smiley .eye:before {
+	content: "eyebrow";
+	position: absolute;
+	top: -3em;
+	background: transparent;
+	color: #FFF;
+	text-indent: -999em;
+	width: 7em;
+	height: 11em;
+	border-top: solid 1em #000;
+	border-radius: 20em;
+}
+
+.smiley .eye:after {
+	content: "cornea";
+	position: absolute;
+	bottom: -.5em;
+	left: .5em;
+	background: #000;
+	color: #000;
+	text-indent: -999em;
+	width: 5em;
+	height: 5em;
+	
+	border-top: solid 1em #000;
+	border-radius: 20em;
+}
+
+.smiley .left.eye {
+	margin-right: 1.5em;
+	margin-left: 11em;
+}
+
+.smiley .left.eye:before {
+	left: -2em;
+	border-radius: 25em 5em 20em 20em;
+}
+
+.smiley .right.eye {
+	margin-left: 1.5em;
+	margin-right: 11em;
+}
+
+.smiley .right.eye:before {
+	right: -2em;
+	border-radius: 5em 25em 20em 20em;
+}
+
+.smiley .mouth {
+	width: 20em;
+	height: 20em;
+	margin-top: 5em;
+	border-top: solid 1em #000;
+}
+
+.happy .mouth:before {
+	content: "";
+	position: absolute;
+	bottom: 30%;
+	left: -1em;
+	width: 3em;
+	height: 3em;
+	border-left: solid .5em #000;
+	border-radius: 5em 1em;
+}
+
+.happy .mouth {
+	position: relative;
+	width: 24em;
+	height: 25em;
+	margin-top: -14em;
+	border-top: 0 none;
+	border-bottom: solid .5em #000;
+	border-radius: 25em;
+}
+
+.happy .mouth:after {
+	content: "";
+	position: absolute;
+	bottom: 30%;
+	right: -1em; 
+	width: 3em;
+	height: 3em;
+	border-right: solid .5em #000;
+	border-radius: 1em 5em;
+}
+
+.frowny .mouth {
+	width: 20em;
+	height: 20em;
+	margin-top: 5em;
+	border-top: solid 1em #000;
+	border-radius: 5em 8em 8em;
+}
+
+.rock .left.eye:before {
+	top: -6em;	
+}
+
+.lying .eye:after {
+	top: -.5em;
+}
