@@ -36,6 +36,7 @@
 	content: "eyebrow";
 	position: absolute;
 	top: -3em;
+	overflow: hidden;
 	background: transparent;
 	color: #FFF;
 	text-indent: -999em;
@@ -50,6 +51,7 @@
 	position: absolute;
 	bottom: -.5em;
 	left: .5em;
+	overflow: hidden;
 	background: #000;
 	color: #000;
 	text-indent: -999em;
@@ -87,35 +89,43 @@
 }
 
 .happy .mouth:before {
-	content: "";
+	content: "left dimple";
 	position: absolute;
-	bottom: 30%;
-	left: -1em;
-	width: 3em;
+	bottom: 25%;
+	left: -1.5em;
+	text-indent: -9999em;
+	width: 4em;
 	height: 3em;
-	border-left: solid .5em #000;
-	border-radius: 5em 1em;
+	border-top: solid .5em #000;
+	-ms-transform: rotate(-20deg);
+	-moz-transform: rotate(-20deg);
+	-webkit-transform: rotate(-20deg);
+	transform: rotate(-20deg);
 }
 
 .happy .mouth {
 	position: relative;
-	width: 24em;
-	height: 25em;
-	margin-top: -14em;
+	width: 21em;
+	height: 20em;
+	margin-top: -9em;
 	border-top: 0 none;
-	border-bottom: solid .5em #000;
+	border-bottom: solid 1em #000;
 	border-radius: 25em;
 }
 
 .happy .mouth:after {
-	content: "";
+	content: "right dimple";
 	position: absolute;
-	bottom: 30%;
-	right: -1em; 
-	width: 3em;
+	bottom: 25%;
+	right: -1.5em; 
+	text-indent: -9999em;
+	width: 4em;
 	height: 3em;
-	border-right: solid .5em #000;
-	border-radius: 1em 5em;
+	border-top: solid .5em #000;
+	-ms-transform: rotate(20deg);
+	-moz-transform: rotate(20deg);
+	-webkit-transform: rotate(20deg);
+	transform: rotate(20deg);
 }
 
 .frowny .mouth {
