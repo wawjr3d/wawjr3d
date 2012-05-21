@@ -1,0 +1,26 @@
+form {
+	width: 600px;
+	margin: 0 auto;	
+}
+
+input {
+	clear: left;
+	float: left;	
+}
+
+input[name=size] {
+	width: 3em;	
+}
+
+label {
+	float: left;	
+}
+
+fieldset {
+	clear: left;
+	float: left;	
+}
+
+.smiley {
+	float: right;	
+}
