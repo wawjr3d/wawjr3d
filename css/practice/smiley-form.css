@@ -23,6 +23,7 @@ form {
 	top: 50px;
 	left: 5%;
 	text-align: left;
+	z-index: 1;
 }
 
 input {
@@ -98,13 +99,15 @@ legend {
 	position: relative;
 	top: 60px;
 	margin: 0 auto;
+	z-index: 0;
 }
 
 .output {
 	position: absolute;
 	top: 50px;
 	right: 5%;
-	text-align: left;	
+	text-align: left;
+	z-index: 1;
 }
 
 pre {
