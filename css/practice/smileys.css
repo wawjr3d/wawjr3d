@@ -88,6 +88,39 @@
 	border-top: solid 1em #000;
 }
 
+.elated .mouth { 
+	position: relative;
+	overflow: hidden;
+	width: 25em;
+	height: 25em;
+	margin-top: 2em;
+	border-top: solid .5em #000;
+}
+
+.elated .mouth:after {
+	content: " "; 
+	position: absolute;
+	top: -50%;
+	left: 0;
+	overflow: hidden;
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(left,  #ffffff 0%, #ffffff 4%, #000000 5%, #ffffff 6%, #ffffff 14%, #000000 15%, #ffffff 16%, #ffffff 24%, #000000 25%, #ffffff 26%, #ffffff 34%, #000000 35%, #ffffff 36%, #ffffff 44%, #000000 45%, #ffffff 46%, #ffffff 54%, #000000 55%, #ffffff 56%, #ffffff 64%, #000000 65%, #ffffff 66%, #ffffff 74%, #000000 75%, #ffffff 76%, #ffffff 84%, #000000 85%, #ffffff 86%, #ffffff 94%, #000000 95%, #ffffff 96%, #ffffff 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#ffffff), color-stop(4%,#ffffff), color-stop(5%,#000000), color-stop(6%,#ffffff), color-stop(14%,#ffffff), color-stop(15%,#000000), color-stop(16%,#ffffff), color-stop(24%,#ffffff), color-stop(25%,#000000), color-stop(26%,#ffffff), color-stop(34%,#ffffff), color-stop(35%,#000000), color-stop(36%,#ffffff), color-stop(44%,#ffffff), color-stop(45%,#000000), color-stop(46%,#ffffff), color-stop(54%,#ffffff), color-stop(55%,#000000), color-stop(56%,#ffffff), color-stop(64%,#ffffff), color-stop(65%,#000000), color-stop(66%,#ffffff), color-stop(74%,#ffffff), color-stop(75%,#000000), color-stop(76%,#ffffff), color-stop(84%,#ffffff), color-stop(85%,#000000), color-stop(86%,#ffffff), color-stop(94%,#ffffff), color-stop(95%,#000000), color-stop(96%,#ffffff), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left,  #ffffff 0%,#ffffff 4%,#000000 5%,#ffffff 6%,#ffffff 14%,#000000 15%,#ffffff 16%,#ffffff 24%,#000000 25%,#ffffff 26%,#ffffff 34%,#000000 35%,#ffffff 36%,#ffffff 44%,#000000 45%,#ffffff 46%,#ffffff 54%,#000000 55%,#ffffff 56%,#ffffff 64%,#000000 65%,#ffffff 66%,#ffffff 74%,#000000 75%,#ffffff 76%,#ffffff 84%,#000000 85%,#ffffff 86%,#ffffff 94%,#000000 95%,#ffffff 96%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left,  #ffffff 0%,#ffffff 4%,#000000 5%,#ffffff 6%,#ffffff 14%,#000000 15%,#ffffff 16%,#ffffff 24%,#000000 25%,#ffffff 26%,#ffffff 34%,#000000 35%,#ffffff 36%,#ffffff 44%,#000000 45%,#ffffff 46%,#ffffff 54%,#000000 55%,#ffffff 56%,#ffffff 64%,#000000 65%,#ffffff 66%,#ffffff 74%,#000000 75%,#ffffff 76%,#ffffff 84%,#000000 85%,#ffffff 86%,#ffffff 94%,#000000 95%,#ffffff 96%,#ffffff 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left,  #ffffff 0%,#ffffff 4%,#000000 5%,#ffffff 6%,#ffffff 14%,#000000 15%,#ffffff 16%,#ffffff 24%,#000000 25%,#ffffff 26%,#ffffff 34%,#000000 35%,#ffffff 36%,#ffffff 44%,#000000 45%,#ffffff 46%,#ffffff 54%,#000000 55%,#ffffff 56%,#ffffff 64%,#000000 65%,#ffffff 66%,#ffffff 74%,#000000 75%,#ffffff 76%,#ffffff 84%,#000000 85%,#ffffff 86%,#ffffff 94%,#000000 95%,#ffffff 96%,#ffffff 100%); /* IE10+ */
+	background: linear-gradient(left,  #ffffff 0%,#ffffff 4%,#000000 5%,#ffffff 6%,#ffffff 14%,#000000 15%,#ffffff 16%,#ffffff 24%,#000000 25%,#ffffff 26%,#ffffff 34%,#000000 35%,#ffffff 36%,#ffffff 44%,#000000 45%,#ffffff 46%,#ffffff 54%,#000000 55%,#ffffff 56%,#ffffff 64%,#000000 65%,#ffffff 66%,#ffffff 74%,#000000 75%,#ffffff 76%,#ffffff 84%,#000000 85%,#ffffff 86%,#ffffff 94%,#000000 95%,#ffffff 96%,#ffffff 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 */
+	text-decoration: line-through;
+	word-spacing: 2em;
+	text-align: center;
+	width: 100%;
+	height: 80%;
+	padding-top: 20%;
+	border-bottom: solid .5em #000;
+	border-radius: 20em;
+}
+
 .happy .mouth:before {
 	content: "left dimple";
 	position: absolute;

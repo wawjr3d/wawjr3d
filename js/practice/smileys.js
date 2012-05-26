@@ -2,7 +2,7 @@
 
 	"use strict";
 	
-	var AVAILABLE_MOODS = ["happy", "frowny"].join(" "),
+	var AVAILABLE_MOODS = ["elated", "happy", "frowny"].join(" "),
 		
 		AVAILABLE_SPECIFICS = ["inquisitive", "lying", "honest", "angry"].join(" "),
 		
@@ -24,12 +24,39 @@
 			SIZE: "size",
 			MOOD: "mood",
 			SPECIFIC: "specific"
-		};
+		},
+		
+		TYPE = "{{type}}",
+		SIZE = "{{size}}",
+		
+		HTML = ["<div class='" + TYPE + "'>",
+					"\t<div class='left eye'></div>",
+					"\t<div class='right eye'></div>",
+					"\t<div class='mouth'></div>",
+				"</div>"].join("\n"),
+				
+		CSS = ["<style type='text/css'>",
+		       		"\t.smiley {",
+		       		"\t\tfont-size: " + SIZE + "px;",
+		       		"\t}",
+		       "</style>"].join("\n");
 	
 	
-	var $form, $smiley, $size;
+	var $form, $smiley, $size, $cssCode, $htmlCode;
 	
-	function pickSmiley(e) {
+	String.prototype.escapeHTML = function () {                                                                                                        
+		return this.replace(/>/g,'&gt;')
+					.replace(/</g,'&lt;')
+					.replace(/"/g,'&quot;');
+	};
+
+	
+	function updateCode() {
+		$cssCode.html(CSS.replace(SIZE, $size.val()).escapeHTML());
+		$htmlCode.html(HTML.replace(TYPE, $smiley[0].className).escapeHTML());
+	}
+	
+	function pickSmiley() {
 		var size = $size.val() || DEFAULT_SIZE;
 		
 		$smiley.css("fontSize", size + "px");
@@ -37,6 +64,8 @@
 		$smiley.removeClass(ALL_SMILEYS);
 		$smiley.addClass($form.find("input[name=" + FIELDS.MOOD + "]:checked").val());
 		$smiley.addClass($form.find("input[name=" + FIELDS.SPECIFIC + "]:checked").val());
+		
+		updateCode();
 	}
 	
 	function killSubmit(e) {
@@ -105,7 +134,9 @@
 	$(function() {
 		$form = $("form.pick-a-smiley");
 		$size = $form.find("input[name=" + FIELDS.SIZE + "]");
-		$smiley = $form.find(".smiley");
+		$smiley = $(".smiley");
+		$cssCode = $(".css.code");
+		$htmlCode = $(".html.code");
 		
 		$form.submit(killSubmit);
 		$form.keydown(upAndDown);
