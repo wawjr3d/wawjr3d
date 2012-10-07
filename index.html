@@ -1,44 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 	<title>wawjr3d</title>
 
 	<!--#include virtual="/includes/head.html" -->
 
+  <link href="/css/jquery.tweet.css" type="text/css" rel="stylesheet">
 	<link href="/css/homepage.css" type="text/css" rel="stylesheet">
-
-	<style type="text/css">
-		#content { text-align: center; }
-	
-		strong, em { clear: both; font-style: normal; font-weight: bold; font-size: 16px; margin: 20px; }
-		strong { float: left; }
-		em { float: right; }
-		
-		img { display: inline-block; }
-	</style>
 </head>
 <body>
 
 	<div id="container">
 		<!--#include virtual="/includes/header.html" -->
 
-		<link href="/css/practice/frowny.css" type="text/css" rel="stylesheet">
-
 		<div id="content">
 			<h1 class="medium wawjr3d">wawjr3d</h1>
 			
 			<img src="/images/wawjr3d.player.png" alt="Player since '03 | wawjr3d">
-			
-			<ul class="rantings">
-				<li><strong>"to be or not to be, that is the question..."</strong></li>
-				<li><em>"now the world dont move...to the beat of just one drum..."</em></li>
-			</ul>
+
+            <div class="tweets">
+            
+            </div>
 			
 		</div>
 
 		<!--#include virtual="/includes/footer.html" -->
 	</div>
-
+    <script type="text/javascript" src="/js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.tweet.js"></script>
+    <script type="text/javascript">
+	    $(function() {
+	        $(".tweets").tweet({
+	            join_text: "auto",
+	            username: "wawjr3d",
+	            avatar_size: 48,
+	            count: 3,
+	            auto_join_text_default: "",
+	            auto_join_text_ed: "",
+	            auto_join_text_ing: "",
+	            auto_join_text_reply: "",
+	            auto_join_text_url: "",
+	            loading_text: "loading tweets..."
+	          });
+	    });
+    </script>
 </body>
 </html>

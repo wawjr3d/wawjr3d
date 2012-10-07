@@ -1,1 +1,30 @@
-h1 { font: bold 60px arial; letter-spacing: 0.2em; text-align: center; }
+h1 {
+    font-size: 4em;
+    letter-spacing: 0.2em;
+    text-align: center;
+    margin: 0 0 .7em;
+}
+
+h1.wawjr3d {
+    font-weight: normal;	
+}
+
+#content {
+	text-align: center;
+}
+
+img {
+	display: inline-block;
+}
+
+.tweets {
+    display: inline-block;
+    text-align: left;
+    width: 35em;
+    vertical-align: top;
+    margin-left: 3em;
+}
+
+.tweets .tweet_list li {
+    padding: 1em .5em;	
+}
