@@ -109,8 +109,18 @@ header nav li li:hover a { color: #666; }
 #content { background: rgba(255, 255, 255, .8); width: 980px; padding: 10px; margin: 0 auto; }
 #content:after { content: "fixin clear one rule at a time"; display: block; clear: both; height: 0; line-height: 0; font-size: 0; text-align: -999px; visibility: hidden; }
 
-h1 { font: bold 25px/30px arial; margin: 15px 0; }
-h2 { font: bold 20px/30px arial; margin: 15px 10px; }
+h1 {
+	font-size: 1.5em;
+	font-family: 'Fredericka the Great';
+	line-height: 1em;
+	margin: .6em 0;
+}
+
+h2 {
+	font-size: 1.25em;
+	font-family: 'Fredericka the Great';
+	line-height: 1.5em;
+    margin: .8em .6em; }
 
 ul.todo { background: #EEE; font-size: 12px; width: 400px; margin: 15px; padding: 10px; border: solid 1px #666; box-shadow: 0 0 3px #666; -webkit-box-shadow: 0 0 3px #666; }
 ul.todo:before { content: "TODO:"; display: block; color: #CCC; font-weight: bold; font-size: 13px; padding-bottom: 5px; }
