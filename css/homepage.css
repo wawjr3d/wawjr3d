@@ -6,25 +6,47 @@ h1 {
 }
 
 h1.wawjr3d {
-    font-weight: normal;	
+    font-weight: normal;
 }
 
 #content {
-	text-align: center;
-}
-
-img {
-	display: inline-block;
+    text-align: center;
 }
 
 .tweets {
     display: inline-block;
     text-align: left;
-    width: 35em;
+    width: 50em;
     vertical-align: top;
-    margin-left: 3em;
 }
 
-.tweets .tweet_list li {
-    padding: 1em .5em;	
+.tweets:before {
+    content: url(/images/wawjr3d.player.png);
+    display: inline-block;
+    float: left;
+    margin-right: 3em;
+}
+
+.tweet_list li {
+    padding: 1em .5em;
+}
+
+.view-all {
+    padding-left: .5em;
+}
+
+@media all and (max-width: 30em) {
+
+    h1 {
+        font-size: 3em;
+        margin: .4em 0;
+    }
+
+    .tweets {
+        width: auto;
+    }
+
+    .tweets:before {
+        content: none;
+    }
 }
