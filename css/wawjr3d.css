@@ -211,7 +211,7 @@ footer {
     border-right: double 2px #CCC;
 }
 
-@media all and (max-width: 30em) {
+@media only screen and (max-device-width: 29em) {
 
     #container {
         padding-bottom: 3em;

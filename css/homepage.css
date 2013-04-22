@@ -35,7 +35,7 @@ h1.wawjr3d {
     padding-left: .5em;
 }
 
-@media all and (max-width: 30em) {
+@media only screen and (max-device-width: 29em) {
 
     h1 {
         font-size: 3em;
