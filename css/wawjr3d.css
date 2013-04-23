@@ -143,7 +143,7 @@ header nav li li:hover a {
 
 #content {
     background: rgba(255, 255, 255, .8);
-    width: 60em;
+    max-width: 60em;
     padding: 1em;
     margin: 0 auto;
 }

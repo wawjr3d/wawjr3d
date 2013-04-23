@@ -16,7 +16,7 @@ h1.wawjr3d {
 .tweets {
     display: inline-block;
     text-align: left;
-    width: 50em;
+    max-width: 50em;
     vertical-align: top;
 }
 
@@ -24,7 +24,7 @@ h1.wawjr3d {
     content: url(/images/wawjr3d.player.png);
     display: inline-block;
     float: left;
-    margin-right: 3em;
+    margin-right: 1em;
 }
 
 .tweet_list li {
@@ -40,10 +40,6 @@ h1.wawjr3d {
     h1 {
         font-size: 3em;
         margin: .4em 0;
-    }
-
-    .tweets {
-        width: auto;
     }
 
     .tweets:before {
