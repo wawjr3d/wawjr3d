@@ -213,6 +213,10 @@ footer {
 
 @media only screen and (max-device-width: 29em) {
 
+    h1 {
+        padding: 0 .3em;
+    }
+
     #container {
         padding-bottom: 3em;
     }
@@ -274,5 +278,15 @@ footer {
         border-right: 0 none;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
+    }
+
+    .list a {
+        display: block;
+        padding: .5em;
+        border-bottom: dotted 1px #CCC;
+    }
+
+    .list li:first-child a {
+        border-top: dotted 1px #CCC;
     }
 }
