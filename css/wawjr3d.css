@@ -81,13 +81,34 @@ header nav:after {
     cursor: pointer;
 }
 
+header nav.open,
+header nav.open:after {
+    -moz-transition: none;
+    -ms-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+
+header nav.closing {
+    -moz-transition: margin-top .5s ease-out;
+    -ms-transition: margin-top .5s ease-out;
+    -webkit-transition: margin-top .5s ease-out;
+    transition: margin-top .5s ease-out;
+}
+
+header nav.open,
 header nav:hover {
     margin-top: 0;
     -webkit-box-shadow: 0 0 5px #CCC;
     box-shadow: 0 0 5px #CCC;
 }
 
-header nav:hover:after { opacity: 0; cursor: default; }
+header nav.open:after,
+header nav:hover:after {
+    opacity: 0;
+    cursor: default;
+}
+
 header nav > ul { text-align: left; }
 header nav > ul > li {
     display: inline-block;

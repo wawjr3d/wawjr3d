@@ -45,5 +45,19 @@
 	          });
 	    });
     </script>
+
+    <script type="text/javascript">
+        var navs = document.getElementsByTagName("NAV");
+        var nav = navs[0];
+        nav.className = "open";
+
+        setTimeout(function() {
+            nav.className = nav.className.replace(/open/, "closing");
+            nav.addEventListener("transitionend", function() {
+                nav.className = nav.className.replace(/closing/, "");
+            }, false);
+        }, 1500);
+
+    </script>
 </body>
 </html>
