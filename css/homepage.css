@@ -27,31 +27,10 @@ h1.wawjr3d {
     margin-right: 1em;
 }
 
-.tweet_list li {
-    padding: 1em .5em;
-}
-
-.view-all {
-    display: block;
-    padding: .5em;
-}
-
 @media only screen and (max-device-width: 29em) {
 
     h1 {
         font-size: 3em;
         margin: .4em 0;
-    }
-
-    .tweet_list {
-        border: dotted #CCC;
-        border-width: 1px 0;
-        -webkit-border-radius: 0;
-        -moz-border-radius: 0;
-        border-radius: 0;
-    }
-
-    .tweets:before {
-        content: none;
     }
 }
