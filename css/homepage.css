@@ -17,7 +17,12 @@ h1.wawjr3d {
     display: inline-block;
     text-align: left;
     max-width: 50em;
+    min-width: 35em;
     vertical-align: top;
+}
+
+#twitter-widget-0 {
+    width: 350px;
 }
 
 .tweets:before {
