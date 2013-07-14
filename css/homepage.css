@@ -21,10 +21,6 @@ h1.wawjr3d {
     vertical-align: top;
 }
 
-#twitter-widget-0 {
-    width: 350px;
-}
-
 .tweets:before {
     content: url(/images/wawjr3d.player.png);
     display: inline-block;
@@ -32,10 +28,26 @@ h1.wawjr3d {
     margin-right: 1em;
 }
 
-@media only screen and (max-device-width: 29em) {
+#twitter-widget-0 {
+    width: 350px;
+}
+
+@media only screen and (max-device-width: 29em), only screen and (max-width: 29em) {
 
     h1 {
         font-size: 3em;
         margin: .4em 0;
+    }
+
+    .tweets {
+        min-width: 0;
+    }
+
+    .tweets:before {
+        content: none;
+    }
+
+    #twitter-widget-0 {
+        width: 100%;
     }
 }

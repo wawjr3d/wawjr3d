@@ -232,7 +232,7 @@ footer {
     border-right: double 2px #CCC;
 }
 
-@media only screen and (max-device-width: 29em) {
+@media only screen and (max-device-width: 29em), only screen and (max-width: 29em) {
 
     h1 {
         padding: 0 .3em;
