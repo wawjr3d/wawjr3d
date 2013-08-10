@@ -13,7 +13,7 @@
 		}
 
 		.text404 { 
-			font-size: 220px;
+			font-size: 14em;
 		}
 		
 		.head { 
@@ -22,13 +22,29 @@
 		}
 
 		p {
-			font: bold 50px arial;
+			font: bold 3em arial;
 			letter-spacing: 0.2em;
 			text-align: center; 
 			text-transform: uppercase;
-			margin: 30px auto 0;
+			margin: .5em auto 0;
 		}
-		
+
+		@media only screen and (max-device-width: 29em), only screen and (max-width: 29em) {
+            .text404 {
+                font-size: 6.75em;
+                margin-top: .3em;
+            }
+
+            .head {
+                font-size: 2px
+            }
+
+            p {
+                font-size: 1.5em;
+                margin-top: 1em;
+            }
+        }
+
 	</style>
 </head>
 <body>
@@ -38,18 +54,16 @@
 
 		<div id="content">
 			<div class="text404">
-				4 
-	
-				<div class="head">
+
+				4<div class="head">
 		
 					<div class="left eye"></div>
 					<div class="right eye"></div>
 		
 					<div class="mouth"></div>
 		
-				</div>
-				
-				4
+				</div>4
+
 			</div>
 			
 			<p>aw snip snap!<br>page not found</p>
