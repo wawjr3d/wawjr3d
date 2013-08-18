@@ -1,3 +1,6 @@
 [submodule "csssmileyjunction"]
 	path = csssmileyjunction
 	url = git@github.com:wawjr3d/csssmileyjunction.git
+[submodule "talks"]
+	path = talks
+	url = ssh://git@bitbucket.org/wawjr3d/talks.git
