@@ -271,6 +271,12 @@ footer {
         margin-top: 0;
     }
 
+    header nav .small.wawjr3d {
+        display: inline-block;
+        background-position: center center;
+        text-indent: -9999em;
+    }
+
     header nav:after {
         content: none;
     }
