@@ -5,12 +5,15 @@ body {
     box-sizing: border-box;
 }
 
-a {
+a,
+.link {
     color: #999;
     text-decoration: none;
+    cursor: pointer;
 }
 
-a:hover {
+a:hover,
+.link:hover {
     color: #BBB;
     text-decoration: underline;
 }
@@ -133,7 +136,7 @@ header nav > ul > li {
     display: inline-block;
     position: relative;
     background: #FFF;
-    height: 20px; 
+    height: 20px;
     padding: 5px 10px;
     cursor: pointer;
 }
@@ -157,7 +160,7 @@ header nav li ul {
     white-space: nowrap;
     height: auto;
     padding: 10px;
-    z-index: 1; 
+    z-index: 1;
     -moz-box-shadow: 0 0 5px #CCC;
     -webkit-box-shadow: 0 0 5px #CCC;
     -ms-box-shadow: 0 0 5px #CCC;
@@ -169,7 +172,7 @@ header nav li li {
     height: 25px;
 }
 
-header nav li li a { 
+header nav li li a {
     display: block;
 }
 
@@ -193,7 +196,7 @@ header nav li li:hover a {
     clear: both;
     font-size: 0;
     line-height: 0;
-    text-align: -999px; 
+    text-align: -999px;
     height: 0;
     visibility: hidden;
 }
@@ -216,8 +219,8 @@ ul.todo {
     background: #EEE;
     font-size: 12px;
     width: 400px;
-    margin: 15px; 
-    padding: 10px; 
+    margin: 15px;
+    padding: 10px;
     border: solid 1px #666;
     box-shadow: 0 0 3px #666;
     -webkit-box-shadow: 0 0 3px #666;
@@ -228,7 +231,7 @@ ul.todo:before {
     display: block;
     color: #CCC;
     font-weight: bold;
-    font-size: 13px; 
+    font-size: 13px;
     padding-bottom: 5px;
 }
 
