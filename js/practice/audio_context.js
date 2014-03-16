@@ -21,21 +21,14 @@
 
     function playImDifferent() {
         var music = new BandJS();
-        music.setTimeSignature(4, 4);
+        music.setTimeSignature(2, 2);
         music.setTempo(120);
 
         var piano = music.createInstrument();
 
-        piano
-            .note("quarter", "C4")
-            .rest("half")
-            .note("quarter", "B4")
-            .rest("half")
-            .note("eighth", "F4")
-            .note("eighth", "A4")
-            .note("eighth", "A4")
-            .note("half", "G4")
-            .note("quarter", "F4");
+        playImDifferentMelody(piano)
+        .rest("whole");
+        playImDifferentMelody(piano);
 
         piano.finish();
 
@@ -44,6 +37,24 @@
         music.play();
 
         return music;
+    }
+
+    function playImDifferentMelody(piano) {
+        piano
+            .rest("quarter")
+            .note("whole", "C5")
+            .note("dottedHalf", "B4")
+            .note("dottedQuarter", "E4")
+            .note("tripletHalf", "A4")
+            .note("tripletHalf", "A4")
+            .note("whole", "F4")
+            .note("tripletHalf", "E4");
+
+        return piano;
+    }
+
+    function YEAH() {
+
     }
 
 })(this, jQuery, BandJS);

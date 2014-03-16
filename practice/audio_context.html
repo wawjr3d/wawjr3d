@@ -5,6 +5,32 @@
   <title>playing with audio context | wawjr3d</title>
 
   <!--#include virtual="/includes/head.html" -->
+
+  <style type="text/css">
+
+    .im_different {
+        float: left;
+        cursor: pointer;
+    }
+
+    .im_different:active {
+        outline: dotted 1px #CCCCCC;
+    }
+
+    .im_different img {
+        display: block;
+        width: 300px;
+        margin-bottom: 1em;
+    }
+
+    .stop_music {
+        display: block;
+        clear: left;
+        margin-top: 1em;
+        padding: 1em 0;
+    }
+
+  </style>
 </head>
 <body>
 
@@ -16,11 +42,12 @@
 
       <h2>Playing with audio context</h2>
 
-      <span class="stop_music link">Stop music</span>
+      <div class="im_different">
+        <img src="/images/2chainz-different-video-600x450.jpg">
+        <span class="link">I'm Different</span>
+      </div>
 
-      <ul>
-        <li><span class="im_different link">I'm Different</span></li>
-      </ul>
+      <span class="stop_music link">Stop music</span>
     </div>
 
     <script type="text/javascript" src="/js/jquery-1.7.1.min.js"></script>
