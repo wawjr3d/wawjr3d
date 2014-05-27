@@ -48,6 +48,7 @@
             .note("tripletHalf", "A4")
             .note("tripletHalf", "A4")
             .note("whole", "F4")
+            .rest("whole")
             .note("tripletHalf", "E4");
 
         return piano;
