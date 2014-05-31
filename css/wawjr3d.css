@@ -184,6 +184,10 @@ header nav li li:hover a {
     color: #666;
 }
 
+.view_all {
+    font-weight: bold;
+}
+
 #content {
     max-width: 60em;
     padding: 1em;
