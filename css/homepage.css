@@ -32,6 +32,12 @@ h1.wawjr3d {
     width: 350px;
 }
 
+.tumblr {
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
 @media only screen and (max-device-width: 29em), only screen and (max-width: 29em) {
 
     h1 {
@@ -51,4 +57,10 @@ h1.wawjr3d {
     #twitter-widget-0 {
         width: 100%;
     }
+
+    .tumblr {
+        position: static;
+        margin-top: 2em;
+    }
+
 }
