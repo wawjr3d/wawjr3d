@@ -205,6 +205,11 @@ header nav li li:hover a {
     visibility: hidden;
 }
 
+sup {
+    font-size: 40%;
+    vertical-align: top;
+}
+
 h1 {
     font-size: 1.5em;
     font-family: 'Fredericka the Great';
