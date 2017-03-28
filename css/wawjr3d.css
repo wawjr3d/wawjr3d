@@ -328,7 +328,7 @@ footer {
         width: auto;
     }
 
-    footer {
+    body:not(.smiley-page) footer {
         position: absolute;
         text-align: center;
         width: 100%;
