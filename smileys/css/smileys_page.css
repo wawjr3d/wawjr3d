@@ -1,0 +1,105 @@
+body,
+html {
+    height: 100%;
+}
+
+body {
+    background: #ffffff; /* Old browsers */
+    font: normal 1em sans-serif;
+    text-align: center;
+    overflow: hidden;
+}
+
+label {
+    display: block;
+    line-height: 1.3em;
+    padding-left: .3em;
+    cursor: pointer;
+}
+
+input[type=radio] {
+    margin: 0 0 0 .4em;
+    padding: 0;
+    cursor: pointer;
+}
+
+.pick-a-smiley {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    text-align: right;
+    z-index: 1;
+}
+
+fieldset {
+    display: block;
+    margin-top: 1em;
+    border: 0 none;
+}
+
+fieldset.size {
+    line-height: 1.8em;
+}
+
+fieldset.size legend {
+    line-height: 1em;
+}
+
+input[name=size] {
+    display: inline-block;
+    text-align: center;
+    width: 2em;
+}
+
+select,
+input {
+    font-size: 3vh;
+}
+
+.up,
+.down {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    width: 1em;
+    height: 1em;
+    cursor: pointer;
+}
+
+.up:before,
+.down:before {
+    content: " ";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: .5em;
+    height: .5em;
+    margin: auto;
+    border: solid .3em;
+    transform: rotate(45deg);
+}
+
+.up:before {
+    top: .5em;
+    border-color: #000 transparent transparent #000;
+}
+
+.down:before {
+    bottom: .2em;
+    border-color: transparent #000 #000 transparent;
+}
+
+legend {
+    font-weight: bold;
+    font-size: 5vh;
+    padding: .1em 0;
+}
+
+.smiley {
+    display: block;
+    position: relative;
+    top: 1rem;
+    margin: 0 auto;
+    z-index: 0;
+}
