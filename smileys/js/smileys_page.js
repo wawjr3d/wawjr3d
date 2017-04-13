@@ -115,6 +115,14 @@
         pickSmiley();
     }
 
+    function track(action, what) {
+        ga("send", "event", {
+            eventCategory: "smileys",
+            eventAction: action,
+            eventLabel: "smiley." + what,
+        });
+    }
+
     $(function() {
         $form = $("form.pick-a-smiley");
         $size = $form.find("input[name=" + FIELDS.SIZE + "]");
@@ -128,13 +136,35 @@
             .keydown(updateSize)
             .change(pickSmiley);
 
+        $size.focus(function() {
+            track("focus", "sizebox");
+        });
+
+        $smiley.click(function() {
+            track("click", "smiley");
+        });
+
         $up.click(function() {
+            track("click", "uparrow");
+
             updateSize({ keyCode: KEYUP });
         });
 
         $down.click(function() {
+            track("click", "downarrow");
+
             updateSize({ keyCode: KEYDOWN });
         });
+
+        $form.find("select[name=" + FIELDS.MOOD + "]")
+            .change(function() {
+                track("change", "mood");
+            });
+
+        $form.find("select[name=" + FIELDS.SPECIFIC + "]")
+            .change(function() {
+                track("change", "specific");
+            });
 
         $form.find("select[name=" + FIELDS.MOOD + "], select[name=" + FIELDS.SPECIFIC + "]")
             .change(pickSmiley)
