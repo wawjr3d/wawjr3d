@@ -8,4 +8,33 @@
   ga('create', 'UA-52303215-2', 'auto');
   ga('send', 'pageview');
 
+  if (!Element.prototype.matches) {
+      Element.prototype.matches = 
+          Element.prototype.matchesSelector || 
+          Element.prototype.mozMatchesSelector ||
+          Element.prototype.msMatchesSelector || 
+          Element.prototype.oMatchesSelector || 
+          Element.prototype.webkitMatchesSelector ||
+          function(s) {
+              var matches = (this.document || this.ownerDocument).querySelectorAll(s),
+                  i = matches.length;
+              while (--i >= 0 && matches.item(i) !== this) {}
+              return i > -1;            
+          };
+  }
+
+  document.querySelector(".main-header").addEventListener("click", function(e) {
+    var link = e.target;
+
+    if (!link.matches("header nav li a")) {
+      return;
+    }
+
+    ga("send", "event", {
+      eventCategory: "navlink",
+      eventAction: "click",
+      eventLabel: link.textContent,
+    });
+  });
+
 </script>
