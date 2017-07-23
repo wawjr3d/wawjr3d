@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>react calendar | wawjr3d</title>
+
+  <!--#include virtual="/includes/head.html" -->
+</head>
+<body>
+  <div id="container">
+    <!--#include virtual="/includes/header.html" -->
+
+    <div id="content">
+      <h1>practice</h1>
+      <h2>React Calendar</h2>
+
+      <div id="root"></div>
+    </div>
+
+    <!--#include virtual="/includes/footer.html" -->
+  </div>
+
+  </script>
+  <script src="https://unpkg.com/react@latest/dist/react.js"></script>
+  <script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+  <script type="text/babel">
+    const monthNames = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
+    const monthDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    const days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
+
+    function Day({ month, date, year }) {
+      function logDate() {
+        console.log(`${ monthNames[month] }, ${ date } ${ year }`);
+      }
+
+      return <td onClick={ logDate }>{ date }</td>;
+    }
+
+    class Calendar extends React.Component {
+
+      constructor(props) {
+        super(props);
+
+        const { startDate = new Date() } = props;
+
+        this.state = {
+          month: startDate.getMonth(),
+          year: startDate.getFullYear()
+        };
+
+        this.handlePrev = this.handlePrev.bind(this);
+        this.handleNext = this.handleNext.bind(this);
+      }
+
+      handlePrev() {
+        this.setState(({ month, year }) => {
+          const newMonth = month - 1;
+          const lastYear = newMonth < 0;
+
+          return {
+            month: lastYear ? 11 : newMonth,
+            year: lastYear ? year - 1 : year
+          };
+        });
+      }
+
+      handleNext() {
+        this.setState(({ month, year }) => {
+          const newMonth = month + 1;
+          const nextYear = newMonth > 11;
+
+          return {
+            month: nextYear ? 0 : newMonth,
+            year: nextYear ? year + 1 : year
+          };
+        });
+      }
+
+      render() {
+        const { month, year } = this.state;
+        const monthName = monthNames[month];
+        const startDay = new Date(year, month, 1).getDay();
+        const daysInMonth = monthDays[month];
+        const weeks = [];
+        const lastInFirst = 7 - startDay;
+        const weeksToDraw = Math.ceil((daysInMonth - lastInFirst) / 7);
+
+        const firstWeek = [];
+        
+        for (let i = 0; i < startDay; i++) {
+          firstWeek.push(<td></td>);
+        }
+
+        for (let i = 0; i < lastInFirst; i++) {
+          firstWeek.push(<Day month={ month } date={ i + 1 } year={ year } />);
+        }
+
+        weeks.push(
+          <tr>
+            { firstWeek }
+          </tr>
+        );
+
+        for (let i = 0; i < weeksToDraw; i++) {
+          const datesInWeek = [];
+
+          for (let j = 0; j < 7; j++) {
+            const date = i * 7 + j + 1 + lastInFirst;
+
+            if (date > daysInMonth) {
+              continue;
+            }
+
+            datesInWeek.push(<Day month={ month } date={ date } year={ year } />);
+          }
+
+          weeks.push(
+            <tr>
+              { datesInWeek }
+            </tr>
+          )
+        }
+
+        return (
+          <div>
+            <span className="prev" onClick={ this.handlePrev }>&lt;</span>
+            <span className="next" onClick={ this.handleNext }>&gt;</span>
+            <table>
+              <thead>
+                <tr>
+                  <th colSpan="7">{ monthName } { year }</th>
+                </tr>
+                <tr>
+                  {days.map((day) => 
+                    <th>{ day }</th>
+                  )}
+                </tr>
+              </thead>
+              <tbody>
+                { weeks }
+              </tbody>
+            </table>
+          </div>
+        );
+      }
+    }
+
+    function buildWeeks(startDay, totalDays) {
+
+    }
+
+    ReactDOM.render(
+      <Calendar />,
+      document.getElementById("root")
+    );
+  </script>
+
+  <!--#include virtual="/includes/scripts.html" -->
+</body>
+</html>
