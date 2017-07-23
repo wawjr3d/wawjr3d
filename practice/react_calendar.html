@@ -5,6 +5,61 @@
   <title>react calendar | wawjr3d</title>
 
   <!--#include virtual="/includes/head.html" -->
+
+  <style>
+    .calendar {
+      position: relative;
+      display: inline-block;
+    }
+
+    .prev,
+    .next {
+      position: absolute;
+      top: .3em;
+      color: #FFF;
+      font-size: 1.2em;
+      font-weight: bold;
+      z-index: 1;
+      cursor: pointer;
+      transition: opacity .2s ease-out;
+    }
+
+    .prev:hover,
+    .next:hover {
+      opacity: .7;
+    }
+
+    .prev {
+      left: .3em;
+    }
+
+    .next {
+      right: .3em;
+    }
+
+    .month {
+      background-color: #999;
+      color: #FFF;
+      font-size: 1.25em;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding: .3em;
+    }
+
+    .day {
+      background-color: #CCC;
+      font-weight: bold;
+      width: 1.5em;
+      padding: .3em;
+    }
+
+    .date {
+      text-align: center;
+      padding: .3em;
+    }
+
+
+  </style>
 </head>
 <body>
   <div id="container">
@@ -26,7 +81,7 @@
   <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
 
   <script type="text/babel">
-    const monthNames = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
+    const monthNames = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
     const monthDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     const days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
 
@@ -35,7 +90,7 @@
         console.log(`${ monthNames[month] }, ${ date } ${ year }`);
       }
 
-      return <td onClick={ logDate }>{ date }</td>;
+      return <td className="date" onClick={ logDate }>{ date }</td>;
     }
 
     class Calendar extends React.Component {
@@ -124,17 +179,17 @@
         }
 
         return (
-          <div>
+          <div className="calendar">
             <span className="prev" onClick={ this.handlePrev }>&lt;</span>
             <span className="next" onClick={ this.handleNext }>&gt;</span>
             <table>
               <thead>
                 <tr>
-                  <th colSpan="7">{ monthName } { year }</th>
+                  <th className="month" colSpan="7">{ monthName } { year }</th>
                 </tr>
                 <tr>
                   {days.map((day) => 
-                    <th>{ day }</th>
+                    <th className="day">{ day }</th>
                   )}
                 </tr>
               </thead>
