@@ -75,7 +75,6 @@
     <!--#include virtual="/includes/footer.html" -->
   </div>
 
-  </script>
   <script src="https://unpkg.com/react@latest/dist/react.js"></script>
   <script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
   <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
@@ -143,7 +142,7 @@
         const weeksToDraw = Math.ceil((daysInMonth - lastInFirst) / 7);
 
         const firstWeek = [];
-        
+
         for (let i = 0; i < startDay; i++) {
           firstWeek.push(<td></td>);
         }
@@ -188,7 +187,7 @@
                   <th className="month" colSpan="7">{ monthName } { year }</th>
                 </tr>
                 <tr>
-                  {days.map((day) => 
+                  {days.map((day) =>
                     <th className="day">{ day }</th>
                   )}
                 </tr>

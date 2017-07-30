@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>last substring | wawjr3d</title>
+
+  <!--#include virtual="/includes/head.html" -->
+
+  <style>
+    #string,
+    #last-substring {
+      font-size: 3em;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <!--#include virtual="/includes/header.html" -->
+
+    <div id="content">
+      <h1>practice</h1>
+      <h2>Last substring</h2>
+
+      Write a program to find the alphabetically last substring of a string e.g. "ab" -> "b", "banana" -> "nana", "bananb" -> "nb".
+
+      <div class="tester">
+        <input type="text" id="string" placeholder="test string">
+        <div id="last-substring"></div>
+      </div>
+    </div>
+
+    <!--#include virtual="/includes/footer.html" -->
+  </div>
+
+  <script>
+    function compute(s) {
+      var candidate = "";
+      var replacement = "";
+
+      for (var i = 0, len = s.length; i < len; i++) {
+        var char = s[i];
+
+        if (char > candidate) {
+          candidate = char;
+          replacement = "";
+          continue;
+        }
+
+
+        candidate += char;
+
+        if (replacement) {
+          replacement += char;
+        }
+
+        if (char === candidate[0] && replacement.substr(-1) !== char) {
+          replacement = char;
+        }
+
+        if (replacement > candidate) {
+          candidate = replacement;
+          replacement = "";
+        }
+      }
+
+      return candidate;
+    }
+
+    var lastSubstring = document.getElementById("last-substring");
+    document.getElementById("string").addEventListener("keyup", function(e) {
+      lastSubstring.innerHTML = compute(e.target.value);
+    });
+
+  </script>
+
+  <!--#include virtual="/includes/scripts.html" -->
+</body>
+</html>
