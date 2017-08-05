@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>random coding | wawjr3d</title>
+
+  <!--#include virtual="/includes/head.html" -->
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+
+  <style>
+    pre {
+      white-space: pre-line;
+      margin: 1em 0;
+    }
+
+    pre code {
+      border: solid 1px #AAA;
+      border-radius: 5px;
+    }
+
+    .hljs {
+      padding: 1em;
+    }
+
+    .keyword {
+      display: inline-block;
+      background-color: #F0F0F0;
+      color: #880000;
+      font-size: .9em;
+      padding: .1em .3em;
+    }
+
+    pre,
+    .keyword,
+    .code-input {
+      font-family: "Lucida Console", Monaco, monospace;
+    }
+
+    .coding {
+      margin-bottom: 3em;
+    }
+
+    .title {
+      font-weight: bold;
+      margin: .5em 0;
+    }
+
+    .code-input {
+      font-size: 1.1em;
+    }
+
+    @media only screen and (max-device-width: 29em), only screen and (max-width: 29em) {
+      .coding {
+        margin: 0 1em 3em;
+      }
+    }
+  </style>
+
+</head>
+<body>
+  <div id="container">
+    <!--#include virtual="/includes/header.html" -->
+
+    <div id="content">
+      <h1>Random Coding</h1>
+
+      <div class="coding-add coding">
+        <h2>Infinite recursion</h2>
+
+        Write a function <span class="keyword">add</span> such that you can call it like this:
+
+        <pre><code>console.log(add(1)); // logs 1
+            console.log(add(1)(2)); // logs 3
+            console.log(add(1)(2)(3)); // logs 6</code></pre>
+
+        <h3 class="title">Try it</h3>
+        <textarea class="code-input" rows="1"></textarea>
+        <pre><code class="output"></code></pre>
+      </div>
+
+      <div class="coding-anagram coding">
+        <h2>Multiplicative anagram</h2>
+
+        Write a program to find the smallest number such that if you multiply it by
+        the numbers 1-<span class="keyword">x</span>, each result will have all the same digits.
+        For example, a number that works when <span class="keyword">x</span> is 2, is
+        285714.
+        <pre><code>1 * 285714 === 285714
+        2 * 285714 === 571428</code></pre>
+        Both numbers have the digits 2, 8, 5, 7, 1, 4
+
+        <h3 class="title">Try it</h3>
+        <label>
+          <span class="keyword">x</span>
+          <select class="choice">
+            <option>--</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+          </select>
+        </label>
+        <pre><code class="output"></code></pre>
+      </div>
+    </div>
+
+    <!--#include virtual="/includes/footer.html" -->
+  </div>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <script>
+    (function(global) {
+      function matches(x, howMany) {
+          if (Number(x.toString()[0]) > Math.floor(10 / howMany)) {
+              return false;
+          }
+
+          var xString = sorted(x);
+
+          for (var i = 1; i <= howMany; i++) {
+              if (sorted(i * x) !== xString) {
+                  return false;
+              }
+          }
+
+          return true;
+      }
+
+      function sorted(x) {
+          return x.toString().split("").sort().join("");
+      }
+
+      function smallestMultiplicativeAnagram(howMany) {
+          var i = 1;
+
+          while(!matches(i, howMany)) {
+              i++;
+          }
+
+          return i;
+      }
+
+      global.smallestMultiplicativeAnagram = smallestMultiplicativeAnagram;
+    })(window);
+
+    (function(global) {
+      function add(x) {
+        var realX = x || 0;
+        var nextAdd = function(y) {
+          var realY = y || 0;
+          return add(realX + realY);
+        };
+
+        nextAdd.valueOf = function() {
+          return realX;
+        };
+
+        return nextAdd;
+      }
+
+      global.add = add;
+    })(window);
+
+    var inputs = document.getElementsByClassName("code-input");
+
+    function addInputHandler(input) {
+      input.addEventListener("keypress", function(e) {
+        var textareaEl = e.target;
+        var afterLastCharacter = textareaEl.selectionStart;
+        var oldValue = textareaEl.value;
+
+        if (e.which === 40) {
+          e.preventDefault();
+          textareaEl.value = [oldValue.slice(0, afterLastCharacter), "()", oldValue.slice(afterLastCharacter)].join("");
+          textareaEl.selectionStart = afterLastCharacter + 1;
+          textareaEl.selectionEnd = afterLastCharacter + 1;
+          return;
+        }
+
+        if (e.which === 41 && oldValue[afterLastCharacter] === ")") {
+          e.preventDefault();
+          textareaEl.selectionStart = afterLastCharacter + 1;
+          textareaEl.selectionEnd = afterLastCharacter + 1;
+          return;
+        }
+      });
+    }
+
+    for (var i = 0, len = inputs.length; i < len; i++) {
+      addInputHandler(inputs[i]);
+    }
+
+    var addOutput = document.querySelector(".coding-add .output");
+
+    document.querySelector(".coding-add .code-input").addEventListener("keyup", function(e) {
+      try {
+        addOutput.innerHTML = "" + eval(e.target.value);
+      } catch(e) {}
+    });
+
+    var anagramOutput = document.querySelector(".coding-anagram .output");
+
+    document.querySelector(".coding-anagram .choice").addEventListener("change", function(e) {
+      var howmany = Number(e.target.value);
+
+      if (!howmany) {
+        anagramOutput.innerHTML = "";
+        return;
+      }
+
+      var value = smallestMultiplicativeAnagram(Number(e.target.value));
+      var result = "";
+
+      for (var i = 1; i <= howmany; i++) {
+        result += "" + (value * i) + "\n";
+      }
+
+      anagramOutput.innerHTML = result;
+    });
+  </script>
+
+
+  <!--#include virtual="/includes/scripts.html" -->
+</body>
+</html>
