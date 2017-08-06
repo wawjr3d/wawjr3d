@@ -120,13 +120,15 @@ header nav li li:hover a {
     font-weight: bold;
 }
 
-#content {
+#content,
+#practice-content {
     max-width: 60em;
     padding: 1em;
     margin: 0 auto;
 }
 
-#content:after {
+#content:after,
+#practice-content:after {
     content: "fixin clear one rule at a time";
     display: block;
     clear: both;
@@ -155,31 +157,9 @@ h2 {
     margin: 1em 0;
 }
 
-ul.todo {
-    background: #EEE;
-    font-size: 12px;
-    width: 400px;
-    margin: 15px;
-    padding: 10px;
-    border: solid 1px #666;
-    box-shadow: 0 0 3px #666;
-    -webkit-box-shadow: 0 0 3px #666;
-}
-
-ul.todo:before {
-    content: "TODO:";
-    display: block;
-    color: #CCC;
-    font-weight: bold;
-    font-size: 13px;
-    padding-bottom: 5px;
-}
-
-ul.todo li {
-    color: #666;
-    line-height: 20px;
-    list-style: disc outside;
-    margin-left: 15px;
+#content .list li {
+    font-size: 1.2em;
+    margin-bottom: .5em;
 }
 
 footer {
@@ -197,6 +177,10 @@ footer {
 
     h1 {
         padding: 0 .3em;
+    }
+
+    #practice-content h1 {
+        padding: 0;
     }
 
     #container {
@@ -235,7 +219,7 @@ footer {
         width: 100%;
     }
 
-    header nav li:hover ul {
+    header nav li ul {
         display: none;
     }
 
@@ -268,13 +252,18 @@ footer {
         box-sizing: border-box;
     }
 
-    .list a {
+    #content .list li {
+        font-size: 1em;
+        margin-bottom: 0;
+    }
+
+    #content .list a {
         display: block;
         padding: .5em;
         border-bottom: dotted 1px #CCC;
     }
 
-    .list li:first-child a {
+    #content .list li:first-child a {
         border-top: dotted 1px #CCC;
     }
 }

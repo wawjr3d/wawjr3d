@@ -50,3 +50,30 @@
 #calculator_state:before { display: block; content: "State"; font: bold 20px/30px arial; }
 
 #status { float: left; margin: 20px; }
+
+ul.todo {
+    background: #EEE;
+    font-size: 12px;
+    width: 400px;
+    margin: 15px;
+    padding: 10px;
+    border: solid 1px #666;
+    box-shadow: 0 0 3px #666;
+    -webkit-box-shadow: 0 0 3px #666;
+}
+
+ul.todo:before {
+    content: "TODO:";
+    display: block;
+    color: #CCC;
+    font-weight: bold;
+    font-size: 13px;
+    padding-bottom: 5px;
+}
+
+ul.todo li {
+    color: #666;
+    line-height: 20px;
+    list-style: disc outside;
+    margin-left: 15px;
+}
