@@ -48,6 +48,7 @@
 
     .code-input {
       font-size: 1.1em;
+      max-width: 100%;
     }
 
   </style>
@@ -70,7 +71,7 @@
             console.log(add(1)(2)(3)); // logs 6</code></pre>
 
         <h3 class="title">Try it</h3>
-        <textarea class="code-input" rows="1"></textarea>
+        <textarea class="code-input" rows="1" cols="100"></textarea>
         <pre><code class="output"></code></pre>
       </div>
 
@@ -145,9 +146,9 @@
 
     (function(global) {
       function add(x) {
-        var realX = x || 0;
+        var realX = x | 0;
         var nextAdd = function(y) {
-          var realY = y || 0;
+          var realY = y | 0;
           return add(realX + realY);
         };
 

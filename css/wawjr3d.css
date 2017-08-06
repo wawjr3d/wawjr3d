@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 html,
 body {
     height: 100%;
@@ -63,7 +67,7 @@ header nav > ul > li {
     display: inline-block;
     position: relative;
     background: #FFF;
-    height: 20px;
+    height: 30px;
     padding: 5px 10px;
     cursor: pointer;
 }
@@ -122,7 +126,7 @@ header nav li li:hover a {
 
 #content,
 #practice-content {
-    max-width: 60em;
+    max-width: 61em;
     padding: 1em;
     margin: 0 auto;
 }

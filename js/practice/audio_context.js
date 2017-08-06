@@ -1,9 +1,9 @@
-(function(global, $, BandJS, undefined) {
+(function(global, BandJS, undefined) {
     "use strict";
 
     var currentMusic;
 
-    $(".stop_music").on("click", function() {
+    document.querySelector(".stop_music").addEventListener("click", function() {
         if (!currentMusic) {
             return;
         }
@@ -11,7 +11,7 @@
         stopMusic(currentMusic);
     });
 
-    $(".im_different").on("click", function() {
+    document.querySelector(".im_different").addEventListener("click", function() {
         currentMusic = playImDifferent();
     });
 
@@ -58,4 +58,4 @@
 
     }
 
-})(this, jQuery, BandJS);
+})(this, BandJS);

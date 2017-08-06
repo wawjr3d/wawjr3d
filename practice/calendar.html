@@ -15,6 +15,10 @@
     footer { clear: both; }
 
   </style>
+
+  <!--[if lte IE 11]>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+  <![endif]-->
 </head>
 <body>
   <div id="container">
@@ -28,117 +32,110 @@
     <!--#include virtual="/includes/footer.html" -->
   </div>
 
-  <script type="text/javascript" src="/js/jquery-1.7.1.min.js"></script>
   <script type="text/javascript">
-    (function($) {
+    function buildCalendarString(options) {
 
-      function buildCalendarString(options) {
+      var settings = Object.assign({
+        start_year : <!--#config timefmt="%Y" --> <!--#echo var="DATE_LOCAL" -->,
+        start_month : <!--#config timefmt="%m" --> <!--#echo var="DATE_LOCAL" --> - 1,
+        start_date : 1,
+        end_year : <!--#config timefmt="%Y" --> <!--#echo var="DATE_LOCAL" --> + 1,
+        end_month : 0,
+        end_date : 1
+      }, options);
 
-        var settings = $.extend({
-          start_year : 2011,
-          start_month : 0,
-          start_date : 1,
-          end_year : 2012,
-          end_month : 0,
-          end_date : 1
-        }, options);
+      var month_displays = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+        padding_cell_string = "<td>&nbsp;</td>",
+        padding_row_string = (function() {
+          padding_row_string_builder = [];
 
-        var month_displays = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-          padding_cell_string = "<td>&nbsp;</td>",
-          padding_row_string = (function() {
-            padding_row_string_builder = [];
+          padding_row_string_builder.push("<tr>");
+          for (var i = 0; i < 7; i++) {
+            padding_row_string_builder.push(padding_cell_string);
+          }
+          padding_row_string_builder.push("</tr>");
 
-            padding_row_string_builder.push("<tr>");
-            for (var i = 0; i < 7; i++) {
-              padding_row_string_builder.push(padding_cell_string);
-            }
-            padding_row_string_builder.push("</tr>");
+          return padding_row_string_builder.join("");
+        })(),
 
-            return padding_row_string_builder.join("");
-          })(),
+        current_date = new Date(settings.start_year, settings.start_month, settings.start_date),
+        end_date = new Date(settings.end_year, settings.end_month, settings.end_date),
 
-          current_date = new Date(settings.start_year, settings.start_month, settings.start_date),
-          end_date = new Date(settings.end_year, settings.end_month, settings.end_date),
+        current_month = -1;
+        rowCount = 0,
 
-          current_month = -1;
-          rowCount = 0,
+        calendar_display_string_builder = [];
 
-          calendar_display_string_builder = [];
+      function buildDateString(date) {
+        return "<td data-filter='" + date.getDate() + "'>" + date.getDate() + "</td>";
+      }
 
-        function buildDateString(date) {
-          return "<td data-filter='" + date.getDate() + "'>" + date.getDate() + "</td>";
+      function incrementDate(date) {
+        date.setDate(date.getDate() + 1);
+      }
+
+      while (current_date < end_date) {
+
+        if (current_month != current_date.getMonth()) {
+          current_month = current_date.getMonth();
+
+          calendar_display_string_builder.push("<table id='" + month_displays[current_month].toLowerCase() + "-" + current_date.getFullYear() + "' class='month'>");
+          calendar_display_string_builder.push("<tr><th colspan='7'>");
+          calendar_display_string_builder.push(month_displays[current_month]);
+          calendar_display_string_builder.push(" ");
+          calendar_display_string_builder.push(current_date.getFullYear());
+          calendar_display_string_builder.push("</th></tr>");
         }
 
-        function incrementDate(date) {
-          date.setDate(date.getDate() + 1);
-        }
+        if (current_date.getDay() == 0 || current_date.getDate() == 1) {
 
-        while (current_date < end_date) {
+          calendar_display_string_builder.push("<tr>");
+          rowCount++;
 
-          if (current_month != current_date.getMonth()) {
-            current_month = current_date.getMonth();
-
-            calendar_display_string_builder.push("<table id='" + month_displays[current_month].toLowerCase() + "-" + current_date.getFullYear() + "' class='month'>");
-            calendar_display_string_builder.push("<tr><th colspan='7'>");
-            calendar_display_string_builder.push(month_displays[current_month]);
-            calendar_display_string_builder.push(" ");
-            calendar_display_string_builder.push(current_date.getFullYear());
-            calendar_display_string_builder.push("</th></tr>");
-          }
-
-          if (current_date.getDay() == 0 || current_date.getDate() == 1) {
-
-            calendar_display_string_builder.push("<tr>");
-            rowCount++;
-
-            if (current_date.getDate() == 1) {
-              for (var i = 0, padding_cells = current_date.getDay(); i < padding_cells; i++) {
-                calendar_display_string_builder.push(padding_cell_string);
-              }
+          if (current_date.getDate() == 1) {
+            for (var i = 0, padding_cells = current_date.getDay(); i < padding_cells; i++) {
+              calendar_display_string_builder.push(padding_cell_string);
             }
           }
+        }
 
 
-          calendar_display_string_builder.push(buildDateString(current_date));
+        calendar_display_string_builder.push(buildDateString(current_date));
 
-          if (current_date.getDay() == 6) {
+        if (current_date.getDay() == 6) {
+          calendar_display_string_builder.push("</tr>");
+        }
+
+
+        incrementDate(current_date);
+
+        if (current_month != current_date.getMonth() || current_date == end_date) {
+          if (current_date.getDay() != 0) {
+            for (var i = 0, padding_cells = 7 - current_date.getDay(); i < padding_cells; i++) {
+              calendar_display_string_builder.push(padding_cell_string);
+            }
+
             calendar_display_string_builder.push("</tr>");
           }
 
-
-          incrementDate(current_date);
-
-          if (current_month != current_date.getMonth() || current_date == end_date) {
-            if (current_date.getDay() != 0) {
-              for (var i = 0, padding_cells = 7 - current_date.getDay(); i < padding_cells; i++) {
-                calendar_display_string_builder.push(padding_cell_string);
-              }
-
-              calendar_display_string_builder.push("</tr>");
-            }
-
-            for (var i = 0, howmany = 6 - rowCount; i < howmany; i++) {
-              calendar_display_string_builder.push(padding_row_string);
-            }
-
-            rowCount = 0;
-
-            calendar_display_string_builder.push("</table>");
+          for (var i = 0, howmany = 6 - rowCount; i < howmany; i++) {
+            calendar_display_string_builder.push(padding_row_string);
           }
 
+          rowCount = 0;
+
+          calendar_display_string_builder.push("</table>");
         }
 
-        return calendar_display_string_builder.join("");
       }
 
-      $(function() {
-        $("#practice-content").append(buildCalendarString({
-          end_month : 6,
-          end_date : 15
-        }));
-      });
+      return calendar_display_string_builder.join("");
+    }
 
-    })(jQuery);
+    document.getElementById("practice-content").innerHTML += buildCalendarString({
+      end_month : 6,
+      end_date : 15
+    });
   </script>
 
   <!--#include virtual="/includes/scripts.html" -->

@@ -3,7 +3,7 @@
 #calculator li { position: relative; font: normal 12px arial; padding: 4px 20px 3px 25px; border: solid 1px transparent; }
 #calculator li a { display: block; position: relative; color: #000; text-decoration: none; }
 #calculator li kbd { position: absolute; font: normal 12px arial; right: 0; }
-#calculator li ul { display: none; position: absolute; top: 0; left: 100%; background: #F0F0F0; width: 210px; padding: 2px; box-shadow: 3px 3px 1px #999; }
+#calculator li ul { display: none; position: absolute; top: 0; left: 100%; background: #F0F0F0; width: 214px; padding: 2px; box-shadow: 3px 3px 1px #999; }
 #calculator li:hover { background: #E8EEF6; border: solid 1px #AECFF7; border-radius: 3px; }
 #calculator li:hover > ul { display: block; }
 
@@ -13,9 +13,9 @@
 #calculator nav > ul > li:active { border-color: #666; box-shadow: 1px 1px 2px #666 inset; }
 #calculator nav > ul > li > ul { top: 17px; bottom: auto; left: 0; right: auto; }
 
-#calculator form { overflow: hidden; background: #D9E4F1; width: 206px; padding: 10px 3px; }
+#calculator form { overflow: hidden; background: #D9E4F1; width: 212px; padding: 10px 3px; }
 
-#calculator input[type=text] { background: #E5EFFA; color: #000; font-size: 22px; text-align: right; vertical-align: bottom; width: 178px; height: 38px; margin: 0 8px; padding: 10px 5px 0; border: solid 1px #999; border-radius: 2px; }
+#calculator input[type=text] { background: #E5EFFA; color: #000; font-size: 22px; text-align: right; vertical-align: bottom; width: 188px; height: 58px; margin: 0 8px; padding: 10px 5px 0; border: solid 1px #999; border-radius: 2px; }
 
 #calculator fieldset { margin-left: 2px; padding: 0; border: 0 none; }
 #calculator fieldset legend { display: none; }
@@ -54,7 +54,7 @@
 ul.todo {
     background: #EEE;
     font-size: 12px;
-    width: 400px;
+    width: 420px;
     margin: 15px;
     padding: 10px;
     border: solid 1px #666;
