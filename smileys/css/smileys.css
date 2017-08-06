@@ -22,6 +22,11 @@
     -moz-box-shadow: 0 0 1em #666;
     -webkit-box-shadow: 0 0 1em #666;
     box-shadow: 0 0 1em #666;
+    box-sizing: content-box;
+}
+
+.smiley * {
+    box-sizing: content-box;
 }
 
 .smiley .eye,

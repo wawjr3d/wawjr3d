@@ -15,6 +15,7 @@
 	margin: auto;
 	border-radius: 25em;
 	box-shadow: 0 0 2em #666;
+	box-sizing: content-box;
 }
 
 .head {
@@ -23,6 +24,7 @@
 }
 
 .head * {
+	box-sizing: content-box;
 	display: inline-block;
 }
 
