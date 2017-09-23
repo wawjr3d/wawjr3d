@@ -63,6 +63,10 @@
       max-width: 100%;
     }
 
+    .coding-random .code-input {
+      width: 3em;
+    }
+
   </style>
 
 </head>
@@ -111,6 +115,19 @@
             <option>6</option>
           </select>
         </label>
+        <pre><code class="output"></code></pre>
+      </div>
+
+      <div class="coding-random coding">
+        <h2>Random order</h2>
+
+        Generate all random numbers between a, b without repetition e.g. randm(1, 7) -> 1,2,3,4,5,6,7
+        <br>
+        <br>
+        Random from
+        <input type="number" name="coding-random-begin" class="code-input">
+        to
+        <input type="number" name="coding-random-end" class="code-input">
         <pre><code class="output"></code></pre>
       </div>
     </div>
@@ -230,6 +247,59 @@
 
       anagramOutput.innerHTML = result;
     });
+
+    function floor(num) {
+      return num | 0;
+    }
+
+    function isNumber(num) {
+      return typeof num === "number";
+    }
+
+    (function() {
+      var codingRandom = document.querySelector(".coding-random");
+      var randomOutput = codingRandom.querySelector(".output");
+      var beginInput = codingRandom.querySelector("[name='coding-random-begin']");
+      var endInput = codingRandom.querySelector("[name='coding-random-end']");
+
+      beginInput.addEventListener("input", generateRandom);
+      endInput.addEventListener("input", generateRandom);
+
+      function generateRandom() {
+        var begin = parseInt(beginInput.value, 10);
+        var end = parseInt(endInput.value, 10);
+
+        if (!isNumber(begin) || !isNumber(end)) {
+          return;
+        }
+
+        if (end < begin) {
+          return;
+        }
+
+        var length = end - begin + 1;
+        var result = new Array(length);
+        var range = new Array(length);
+
+        for (var i = 0; i < length; i++) {
+          range[i] = begin + i;
+        }
+
+        for (var i = 0; i < length; i++) {
+          var total = length - i;
+          var next = floor(Math.random() * total);
+          var num = range[next];
+
+          // swap last with the current found so we dont mutate array
+          range[next] = range[total - 1];
+
+          result[i] = num;
+        }
+
+        randomOutput.innerHTML = result;
+      }
+    })();
+
   </script>
 
 
