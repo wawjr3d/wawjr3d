@@ -67,6 +67,10 @@
       width: 3em;
     }
 
+    .coding-floyd .output {
+      white-space: pre;
+    }
+
   </style>
 
 </head>
@@ -128,6 +132,19 @@
         <input type="number" name="coding-random-begin" class="code-input">
         to
         <input type="number" name="coding-random-end" class="code-input">
+        <pre><code class="output"></code></pre>
+      </div>
+
+      <div class="coding-floyd coding">
+        <h2>Floyd triangle</h2>
+
+        Write a function that print's a triangle of natural numbers based on the number of row requested. For example, if 4 rows are requested, it looks like:
+        <br>
+        <img src="https://www.tutorialspoint.com/learn_c_by_examples/images/floyds_triangle.jpg">
+        <br>
+        <br>
+        How many rows
+        <input type="number" name="coding-floyd-rows" class="code-input">
         <pre><code class="output"></code></pre>
       </div>
     </div>
@@ -299,6 +316,46 @@
         randomOutput.innerHTML = result;
       }
     })();
+
+    (function() {
+      var coding = document.querySelector(".coding-floyd");
+      var output = coding.querySelector(".output");
+      var rowsInput = coding.querySelector("[name='coding-floyd-rows']");
+
+      rowsInput.addEventListener("input", drawTriangle);
+
+      function drawTriangle() {
+        var n = parseInt(rowsInput.value, 10);
+        var last = n * (n + 1) / 2;
+        var maxDigits = ("" + last).length;
+        var triangle = "";
+
+        var m = 1;
+
+        for (var i = 1; i <= last; i++) {
+          var curr = "" + i;
+          triangle += padEnd(curr, maxDigits) + " ";
+
+          if (i === m * (m + 1) / 2) {
+            triangle += "\n";
+            m++;
+          }
+        }
+
+        output.innerHTML = triangle;
+      }
+    })();
+
+    function padEnd(string, n, what) {
+      var result = string;
+      var pad = what || " ";
+
+      while(result.length < n) {
+        result += pad;
+      }
+
+      return result;
+    }
 
   </script>
 
