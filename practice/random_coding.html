@@ -67,6 +67,10 @@
       width: 3em;
     }
 
+    .coding-floyd .code-input {
+      vertical-align: middle;
+    }
+
     .coding-floyd .output {
       white-space: pre;
     }
@@ -143,8 +147,9 @@
         <img src="https://www.tutorialspoint.com/learn_c_by_examples/images/floyds_triangle.jpg">
         <br>
         <br>
-        How many rows
-        <input type="number" name="coding-floyd-rows" class="code-input">
+        How many rows:
+        <span class="how-many-rows"></span>
+        <input type="range" name="coding-floyd-rows" class="code-input" min="1" max="15" value="1">
         <pre><code class="output"></code></pre>
       </div>
     </div>
@@ -321,8 +326,11 @@
       var coding = document.querySelector(".coding-floyd");
       var output = coding.querySelector(".output");
       var rowsInput = coding.querySelector("[name='coding-floyd-rows']");
+      var howManyRows = coding.querySelector(".how-many-rows");
 
       rowsInput.addEventListener("input", drawTriangle);
+
+      drawTriangle();
 
       function drawTriangle() {
         var n = parseInt(rowsInput.value, 10);
@@ -342,6 +350,7 @@
           }
         }
 
+        howManyRows.innerHTML = n;
         output.innerHTML = triangle;
       }
     })();
