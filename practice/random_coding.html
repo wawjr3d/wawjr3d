@@ -35,6 +35,12 @@
       padding: 1em;
     }
 
+    .table-of-contents {
+      list-style-type: circle;
+      padding-left: 20px;
+      margin: 1em 0 2em;
+    }
+
     .keyword {
       display: inline-block;
       background-color: #F0F0F0;
@@ -63,16 +69,20 @@
       max-width: 100%;
     }
 
-    .coding-random .code-input {
+    #random-order .code-input {
       width: 3em;
     }
 
-    .coding-floyd .code-input {
+    #floyd-triangle .code-input {
       vertical-align: middle;
     }
 
-    .coding-floyd .output {
+    #floyd-triangle .output {
       white-space: pre;
+    }
+
+    :target {
+      padding-top: 31px;
     }
 
   </style>
@@ -85,7 +95,7 @@
     <div id="practice-content">
       <h1>Random Coding</h1>
 
-      <div class="coding-add coding">
+      <div id="infinite-recursion" class="coding-add coding">
         <a name="infinite-recursion"></a>
         <h2>Infinite recursion</h2>
 
@@ -100,7 +110,7 @@
         <pre><code class="output"></code></pre>
       </div>
 
-      <div class="coding-anagram coding">
+      <div id="multiplicative-anagram" class="coding">
         <a name="multiplicative-anagram"></a>
         <h2>Multiplicative anagram</h2>
 
@@ -128,7 +138,7 @@
         <pre><code class="output"></code></pre>
       </div>
 
-      <div class="coding-random coding">
+      <div id="random-order" class="coding">
         <a name="random-order"></a>
         <h2>Random order</h2>
 
@@ -136,13 +146,13 @@
         <br>
         <br>
         Random from
-        <input type="number" name="coding-random-begin" class="code-input">
+        <input type="number" name="begin" class="code-input">
         to
-        <input type="number" name="coding-random-end" class="code-input">
+        <input type="number" name="end" class="code-input">
         <pre><code class="output"></code></pre>
       </div>
 
-      <div class="coding-floyd coding">
+      <div id="floyd-triangle" class="coding">
         <a name="floyd-triangle"></a>
         <h2>Floyd triangle</h2>
 
@@ -153,7 +163,7 @@
         <br>
         How many rows:
         <span class="how-many-rows"></span>
-        <input type="range" name="coding-floyd-rows" class="code-input" min="1" max="15" value="1">
+        <input type="range" name="rows" class="code-input" min="1" max="15" value="1">
         <pre><code class="output"></code></pre>
       </div>
     </div>
@@ -246,33 +256,63 @@
       addInputHandler(inputs[i]);
     }
 
-    var addOutput = document.querySelector(".coding-add .output");
+    (function() {
+      var tableOfContentsEl = document.createElement("ul");
+      tableOfContentsEl.className = "table-of-contents";
 
-    document.querySelector(".coding-add .code-input").addEventListener("keyup", function(e) {
-      try {
-        addOutput.innerHTML = "" + eval(e.target.value);
-      } catch(e) {}
-    });
+      var anchors = document.querySelectorAll("a[name]");
 
-    var anagramOutput = document.querySelector(".coding-anagram .output");
+      Array.prototype.slice.call(anchors).forEach(function(anchor) {
+        var h2 = anchor.parentNode.querySelector("h2");
+        var li = document.createElement("li");
 
-    document.querySelector(".coding-anagram .choice").addEventListener("change", function(e) {
-      var howmany = Number(e.target.value);
+        var link = document.createElement("a");
+        link.href = "#" + anchor.getAttribute("name");
+        link.textContent = h2.textContent;
 
-      if (!howmany) {
-        anagramOutput.innerHTML = "";
-        return;
-      }
+        li.appendChild(link);
+        tableOfContentsEl.appendChild(li);
+      });
 
-      var value = smallestMultiplicativeAnagram(Number(e.target.value));
-      var result = "";
+      var practiceContentEl = document.getElementById("practice-content");
+      var h1 = practiceContentEl.querySelector("h1");
 
-      for (var i = 1; i <= howmany; i++) {
-        result += "" + (value * i) + "\n";
-      }
+      practiceContentEl.insertBefore(tableOfContentsEl, h1.nextSibling);
+    })();
 
-      anagramOutput.innerHTML = result;
-    });
+    (function() {
+      var codingAdd = document.getElementById("infinite-recursion");
+      var addOutput = codingAdd.querySelector(".output");
+
+      codingAdd.querySelector(".code-input").addEventListener("keyup", function(e) {
+        try {
+          addOutput.innerHTML = "" + eval(e.target.value);
+        } catch(e) {}
+      });
+    })();
+
+    (function() {
+      var codingAnagram = document.getElementById("multiplicative-anagram");
+      var anagramOutput = codingAnagram.querySelector(".output");
+
+      codingAnagram.querySelector(".choice").addEventListener("change", function(e) {
+        var howmany = Number(e.target.value);
+
+        if (!howmany) {
+          anagramOutput.innerHTML = "";
+          return;
+        }
+
+        var value = smallestMultiplicativeAnagram(Number(e.target.value));
+        var result = "";
+
+        for (var i = 1; i <= howmany; i++) {
+          result += "" + (value * i) + "\n";
+        }
+
+        anagramOutput.innerHTML = result;
+      });
+    })();
 
     function floor(num) {
       return num | 0;
@@ -283,10 +323,10 @@
     }
 
     (function() {
-      var codingRandom = document.querySelector(".coding-random");
+      var codingRandom = document.getElementById("random-order");
       var randomOutput = codingRandom.querySelector(".output");
-      var beginInput = codingRandom.querySelector("[name='coding-random-begin']");
-      var endInput = codingRandom.querySelector("[name='coding-random-end']");
+      var beginInput = codingRandom.querySelector("[name='begin']");
+      var endInput = codingRandom.querySelector("[name='end']");
 
       beginInput.addEventListener("input", generateRandom);
       endInput.addEventListener("input", generateRandom);
@@ -327,9 +367,9 @@
     })();
 
     (function() {
-      var coding = document.querySelector(".coding-floyd");
+      var coding = document.getElementById("floyd-triangle");
       var output = coding.querySelector(".output");
-      var rowsInput = coding.querySelector("[name='coding-floyd-rows']");
+      var rowsInput = coding.querySelector("[name='rows']");
       var howManyRows = coding.querySelector(".how-many-rows");
 
       rowsInput.addEventListener("input", drawTriangle);
