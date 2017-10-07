@@ -9,6 +9,7 @@ h1 {
     display: inline-block;
     text-shadow: -0.06em 0 red, 0.06em 0 cyan;
     transition: text-shadow .25s ease-out;
+    cursor: cell;
 }
 
 .wawjr3d-header:hover {
