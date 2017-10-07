@@ -8,7 +8,7 @@ h1 {
 .wawjr3d-header {
     display: inline-block;
     text-shadow: -0.06em 0 red, 0.06em 0 cyan;
-    transition: text-shadow .25s ease-out;
+    transition: text-shadow .2s ease-out;
     cursor: cell;
 }
 
