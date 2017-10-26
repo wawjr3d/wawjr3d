@@ -73,6 +73,17 @@
       width: 3em;
     }
 
+    .reload {
+      font-size: 1.4em;
+      font-weight: bold;
+      vertical-align: bottom;
+      transition: transform .2s ease-out;
+    }
+
+    .reload:hover {
+      transform: rotate(90deg);
+    }
+
     #floyd-triangle .code-input {
       vertical-align: middle;
     }
@@ -149,6 +160,7 @@
         <input type="number" name="begin" class="code-input">
         to
         <input type="number" name="end" class="code-input">
+        <span class="reload">&nbsp;&#x21bb;&nbsp;</span>
         <pre><code class="output"></code></pre>
       </div>
 
@@ -327,9 +339,12 @@
       var randomOutput = codingRandom.querySelector(".output");
       var beginInput = codingRandom.querySelector("[name='begin']");
       var endInput = codingRandom.querySelector("[name='end']");
+      var reload = codingRandom.querySelector(".reload");
 
       beginInput.addEventListener("input", generateRandom);
       endInput.addEventListener("input", generateRandom);
+
+      reload.addEventListener("click", generateRandom);
 
       function generateRandom() {
         var begin = parseInt(beginInput.value, 10);
