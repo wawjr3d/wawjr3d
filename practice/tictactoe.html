@@ -71,7 +71,6 @@
         height: 90px;
       }
 
-    }
   </style>
 
 </head>
@@ -101,18 +100,19 @@
   <script src="https://unpkg.com/vue"></script>
   <script>
     var ICONS = ["x", "o"];
-    var startGame = " ".repeat(3 * 3);
+    var START_GAME = " ".repeat(3 * 3);
+
     var app = new Vue({
       el: '#tic-tac-toe',
       data: {
         isReady: true,
         winner: null,
         turn: 0,
-        game: startGame
+        game: START_GAME
       },
       methods: {
         reset: function() {
-          this.game = startGame;
+          this.game = START_GAME;
           this.winner = null;
           this.turn = 0;
         },
