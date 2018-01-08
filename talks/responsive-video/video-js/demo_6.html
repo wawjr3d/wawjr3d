@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Video.js | HTML5 Video Player</title>
+
+  <!-- Chang URLs to wherever Video.js files will be hosted -->
+  <link href="video-js.css" rel="stylesheet" type="text/css">
+  <link href="demo.css" rel="stylesheet" type="text/css">
+  <!-- video.js must be in the <head> for older IEs to work. -->
+  <script src="video.js"></script>
+
+  <!-- Unless using the CDN hosted version, update the URL to the Flash SWF -->
+  <script>
+    videojs.options.flash.swf = "video-js.swf";
+  </script>
+
+
+</head>
+<body>
+  <div class="state">HTML5 PLAYER USING FLASH SOLUTION - STILL RESPONSIVE</div>
+  <div class="container-with-width">
+    <video id="html5_player" class="video-js vjs-default-skin" controls preload="none" width="640" height="264"
+        poster="http://video-js.zencoder.com/oceans-clip.png"
+        data-setup='{"techOrder": ["html5", "flash"]}'>
+      <source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4' />
+      <source src="http://video-js.zencoder.com/oceans-clip.webm" type='video/webm' />
+      <source src="http://video-js.zencoder.com/oceans-clip.ogv" type='video/ogg' />
+      <track kind="captions" src="demo.captions.vtt" srclang="en" label="English"></track><!-- Tracks need an ending tag thanks to IE9 -->
+    </video>
+  </div>
+
+  <style type="text/css">
+    .container-with-width {
+        max-width: 45em;
+    }
+
+    #html5_player,
+    #flash_player {
+        position: relative;
+        width: 100% !important;
+        height: 0 !important;
+        padding-bottom: 41%; /* 264 / 640 */
+    }
+
+    #html5_player video,
+    #flash_player object,
+    #flash_player embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .vjs-poster {
+        position: absolute;
+    }
+  </style>
+</body>
+</html>
