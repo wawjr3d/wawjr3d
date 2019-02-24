@@ -1,0 +1,480 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>test suite | wawjr3d</title>
+
+    <!--#include virtual="/includes/head.html" -->
+
+    <meta name="description" content="Implementing a test suite while I wait for a Delta flight by Wayne Warner" />
+
+    <meta name="twitter:description" content="Implementing a test suite while I wait for a Delta flight by Wayne Warner">
+    <meta name="twitter:title" content="test suite | wawjr3d">
+    <meta name="twitter:url" content="https://www.wawjr3d.com/practice/test_suite.html">
+
+    <meta property="og:description" content="Implementing a test suite while I wait for a Delta flight by Wayne Warner">
+    <meta property="og:title" content="test suite | wawjr3d">
+    <meta property="og:url" content="https://www.wawjr3d.com/practice/test_suite.html">
+
+    <link rel="canonical" href="https://www.wawjr3d.com/practice/test_suite.html">
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+
+    <style type="text/css">
+      .results {
+        color: #252525;
+        font-family: sans-serif;
+      }
+
+      .suite,
+      .test,
+      .reason {
+        background: #eee;
+        padding: .3em;
+      }
+
+      .suite {
+        font-size: 1.2em;
+        font-weight: bold;
+      }
+
+      .test {
+        padding-left: 1.1em;
+        margin: .2em 0;
+      }
+
+      .test.fail:before {
+        content: "x ";
+      }
+
+      .test.fail {
+        color: #c00;
+      }
+
+      .test.success {
+        color: forestgreen;
+      }
+
+      .reason {
+        padding-left: 2em;
+      }
+
+      pre {
+        white-space: pre;
+        margin: 1em 0;
+      }
+
+      pre code {
+        border: solid 1px #AAA;
+        border-radius: 5px;
+      }
+
+      .hljs {
+        padding: 1em;
+      }
+    </style>
+</head>
+<body>
+  <div id="container">
+    <!--#include virtual="/includes/header.html" -->
+
+    <div id="practice-content">
+      <h1>Test suite</h1>
+
+      <h2>results</h2>
+      <section class="results"></section>
+
+      <h2>the code</h2>
+      <pre>
+        <code class="the-code">
+
+        </code>
+      </pre>
+    </div>
+
+    <!--#include virtual="/includes/footer.html" -->
+  </div>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function() {
+      var actualCodeEl = document.querySelector('.actual-code');
+      var theCodeEl = document.querySelector('.the-code');
+
+      theCodeEl.innerHTML = actualCodeEl.innerHTML;
+
+      hljs.initHighlightingOnLoad();
+    });
+  </script>
+
+  <script type="text/javascript" class="actual-code">
+      var recordingScope;
+      var runningScope;
+      var scopes = 0;
+
+      var resultsEl = document.getElementsByClassName("results")[0];
+
+      window.addEventListener("error", function(e) {
+          e.preventDefault();
+
+          runningScope.currentTest.reason = e.error || e;
+
+          runningScope.finishTest();
+      });
+
+      function assertEquals(actual, expected) {
+          if (actual !== expected) {
+              throw new Error("Expected '" + actual + "' to equal '" + expected + "'");
+          }
+      }
+
+      function assert(actual, expected, compare, message) {
+          if (!compare(actual, expected)) {
+              throw new Error(message(actual, expected));
+          }
+      }
+
+      function expect(actual) {
+          return {
+              toBe: function(expected) {
+                  assert(
+                      actual,
+                      expected,
+                      function(a, b) { return a === b},
+                      function(a, b) { return "Expected '" + actual + "' to equal '" + expected + "'"; }
+                  );
+              },
+
+              toBeGreaterThan: function(expected) {
+                  assert(
+                      actual,
+                      expected,
+                      function(a, b) { return a > b },
+                      function(a, b) { return "Expected '" + actual + "' to be greater than '" + expected + "'"; }
+                  );
+              },
+
+              toBeLessThan: function(expected) {
+                  assert(
+                      actual,
+                      expected,
+                      function(a, b) { return a < b},
+                      function(a, b) { return "Expected '" + actual + "' to be less than '" + expected + "'"; }
+                  );
+              }
+          };
+      }
+
+      function createScope(id) {
+          var scope = {
+              id: id,
+              objs: [],
+              nextToRun: 0,
+              currentTest: null,
+              parent: recordingScope,
+              finishTest: finishTest,
+              runNext: runNext
+          };
+
+          function finishTest() {
+              try {
+                  runAfters(scope);
+              } catch(e) {
+                  scope.currentTest.reason = e;
+              }
+
+              logTest(scope.currentTest);
+
+              runNext();
+          }
+
+          function finishScope() {
+              var parentScope = scope.parent || rootScope;
+
+              if (parentScope.nextToRun === parentScope.objs.length) {
+                  return;
+              }
+
+              parentScope.runNext();
+          }
+
+          function runDescribe(describe) {
+              try {
+                  logSuite(describe.description);
+
+                  runningScope = describe.scope;
+
+                  runningScope.runNext();
+              } catch (e) {
+
+              }
+          }
+
+          function runTest(test) {
+              scope.currentTest = test;
+
+              if (scope.runBefore) {
+                  scope.runBefore();
+              }
+
+              try {
+                  runBefores(scope);
+
+                  if (test.isAsync) {
+                      test.test(finishTest);
+
+                      return;
+                  }
+
+                  test.test();
+              } catch(e) {
+                  test.reason = e;
+              }
+
+              finishTest();
+          }
+
+          function runNext() {
+              var test = scope.objs[scope.nextToRun];
+
+              scope.nextToRun += 1;
+
+              runningScope = scope;
+
+              if (!test) {
+                  return finishScope();
+              }
+
+              if (test.isDescribe) {
+                  runDescribe(test);
+              }
+
+              if (test.isTest) {
+                  runTest(test);
+              }
+
+          }
+
+          return scope;
+      }
+
+      function runBefores(scope) {
+          var current = scope;
+          var befores = [];
+
+          while (current) {
+              befores.push(current.before);
+              current = current.parent;
+          }
+
+          befores.reverse().forEach(runWrapper);
+      }
+
+      function runAfters(scope) {
+          var current = scope;
+          var afters = [];
+
+          while (current) {
+              afters.push(current.after);
+              current = current.parent;
+          }
+
+          afters.reverse().forEach(runWrapper);
+      }
+
+      function runWrapper(wrapper) {
+          if (!wrapper) {
+              return;
+          }
+
+          if (typeof wrapper === "function") {
+              wrapper();
+              return;
+          }
+
+          wrapper.forEach(function(eachWrapper) {
+              eachWrapper();
+          });
+
+      }
+
+      function describe(description, buildSuite) {
+          var scope = createScope(scopes++);
+          var parentScope = recordingScope || rootScope;
+
+          recordingScope = scope;
+
+          try {
+              buildSuite();
+
+              parentScope.objs.push({
+                  description: description,
+                  buildSuite: buildSuite,
+                  isDescribe: true,
+                  scope: scope
+              });
+
+              if (parentScope.objs.length === 1) {
+                  parentScope.runNext();
+              }
+
+              recordingScope = parentScope;
+
+          } catch (e) {
+
+          }
+
+
+      }
+
+      function it(message, test) {
+          if (recordingScope === rootScope) {
+              throw new Error("You must use a describe to start a test suite");
+          }
+
+          recordingScope.objs.push({
+              message: message,
+              test: test,
+              isAsync: !!test.length,
+              reason: null,
+              isTest: true
+          });
+      }
+
+      function beforeEach(before) {
+          if (!before) {
+              return;
+          }
+
+          if (recordingScope.before) {
+              recordingScope.before = [].concat(recordingScope.before, before);
+              return;
+          }
+
+          recordingScope.before = before;
+      }
+
+      function afterEach(after) {
+          if (!after) {
+              return;
+          }
+
+          if (recordingScope.after) {
+              recordingScope.after = [].concat(recordingScope.after, after);
+              return;
+          }
+
+          recordingScope.after = after;
+      }
+
+      function logSuite(message) {
+          resultsEl.insertAdjacentHTML("beforeend", "<div class='suite'>" + message + "</div>");
+      }
+
+      function logTest(test) {
+          var e = test.reason;
+          var message = test.message;
+          var statusClass = e ? "fail" : "success";
+
+          if (e) {
+              message += "<div class='reason'>" + (e.message || e) + "</div>";
+          }
+
+          resultsEl.insertAdjacentHTML("beforeend", "<div class='test " + statusClass + "'>" + message + "</div>");
+      }
+
+      rootScope = createScope("root");
+
+      describe("Another test suite", function() {
+
+          beforeEach(function() {
+              console.log("running before too");
+          });
+
+          it("should pass too", function() {
+              expect(true).toBe(true);
+          });
+
+          it("should pass eventually too", function(done) {
+              setTimeout(function() {
+                  assertEquals(true, true);
+                  done();
+              });
+          });
+
+      });
+
+      describe("A test suite", function() {
+
+          beforeEach(function() {
+              console.log("running before");
+          });
+
+          afterEach(function() {
+              console.log("running after");
+          });
+
+          it("should pass", function() {
+              assertEquals(true, true);
+          });
+
+          it("should fail", function() {
+              expect(0).toBeGreaterThan(1);
+          });
+
+          it("should pass eventually", function(done) {
+              setTimeout(function() {
+                  assertEquals(true, true);
+                  done();
+              });
+          });
+
+          describe("nested test suite", function() {
+
+              beforeEach(function() {
+                  console.log("running before nested");
+              });
+
+              beforeEach(function() {
+                  console.log("running before nested part 2");
+              });
+
+              afterEach(function() {
+                  console.log("running after nested");
+              });
+
+              afterEach(function() {
+                  console.log("running after nested part 2");
+              });
+
+              it("should pass nested", function() {
+                  expect(true).toBe(true);
+              });
+
+              it("should fail eventually nested", function(done) {
+                  setTimeout(function() {
+                      expect(0).toBeLessThan(-1)
+                      done();
+                  });
+              });
+          });
+
+          it("should pass again", function() {
+              assertEquals(true, true);
+          });
+
+          it("should fail eventually", function(done) {
+              setTimeout(function() {
+                  expect(0).toBeLessThan(-1)
+                  done();
+              });
+          });
+
+          it("should fail again", function() {
+              assertEquals(false, true);
+          });
+
+      });
+  </script>
+</body>
+</html>
