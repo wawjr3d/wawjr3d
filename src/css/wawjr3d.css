@@ -1,272 +1,272 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html,
 body {
-    height: 100%;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+  height: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 a,
 .link {
-    color: #999;
-    text-decoration: none;
-    cursor: pointer;
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 a:hover,
 .link:hover {
-    color: #BBB;
-    text-decoration: underline;
+  color: #BBB;
+  text-decoration: underline;
 }
 
 #container {
-    position: relative;
-    font: normal 1em arial, helvetica;
-    min-height: 100%;
-    padding-bottom: 1.4em;
-    border-top: solid 1px #CCC;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+  position: relative;
+  font: normal 1em arial, helvetica;
+  min-height: 100%;
+  padding-bottom: 1.4em;
+  border-top: solid 1px #CCC;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .wawjr3d {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .small.wawjr3d {
-    background: url(/images/wawjr3d.small.png) no-repeat center left;
-    text-shadow: none;
-    padding-left: 20px;
+  background: url(/images/wawjr3d.small.png) no-repeat center left;
+  text-shadow: none;
+  padding-left: 20px;
 }
 
 header {
-    height: 60px;
+  height: 60px;
 }
 
 header nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: #FFF;
-    text-align: center;
-    width: 100%;
-    border-bottom: solid 1px #CCC;
-    z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #FFF;
+  text-align: center;
+  width: 100%;
+  border-bottom: solid 1px #CCC;
+  z-index: 100;
 }
 
 header nav > ul {
-    background: #FFF;
-    text-align: left;
+  background: #FFF;
+  text-align: left;
 }
 
 header nav > ul > li {
-    display: inline-block;
-    position: relative;
-    background: #FFF;
-    height: 30px;
-    padding: 5px 10px;
-    cursor: pointer;
+  display: inline-block;
+  position: relative;
+  background: #FFF;
+  height: 30px;
+  padding: 5px 10px;
+  cursor: pointer;
 }
 
 header nav > ul > li:hover {
-    -webkit-box-shadow: 0 0 5px #CCC;
-    box-shadow: 0 0 5px #CCC;
+  -webkit-box-shadow: 0 0 5px #CCC;
+  box-shadow: 0 0 5px #CCC;
 }
 
 header nav li a {
-    position: relative;
-    z-index: 0;
+  position: relative;
+  z-index: 0;
 }
 
 header nav li a:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 header nav li ul {
-    position: absolute;
-    top: 30px;
-    left: 0;
-    background: #FFF;
-    white-space: nowrap;
-    height: auto;
-    padding: 10px;
-    border: solid 1px #CCC;
-    z-index: -1;
-    opacity: 0;
-    box-shadow: 2px 2px 10px #CCC;
-    transform: translateY(-100%);
-    transition: transform .2s ease, opacity .2s ease;
+  position: absolute;
+  top: 30px;
+  left: 0;
+  background: #FFF;
+  white-space: nowrap;
+  height: auto;
+  padding: 10px;
+  border: solid 1px #CCC;
+  z-index: -1;
+  opacity: 0;
+  box-shadow: 2px 2px 10px #CCC;
+  transform: translateY(-100%);
+  transition: transform .2s ease, opacity .2s ease;
 }
 
 header nav li li {
-    line-height: 25px;
-    height: 25px;
+  line-height: 25px;
+  height: 25px;
 }
 
 header nav li li a {
-    display: block;
+  display: block;
 }
 
 header nav li:hover ul {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
 header nav li li:hover a {
-    color: #666;
+  color: #666;
 }
 
 .view_all {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 #content,
 #practice-content {
-    max-width: 61em;
-    padding: 1em;
-    margin: 0 auto;
+  max-width: 61em;
+  padding: 1em;
+  margin: 0 auto;
 }
 
 #content:after,
 #practice-content:after {
-    content: "fixin clear one rule at a time";
-    display: block;
-    clear: both;
-    font-size: 0;
-    line-height: 0;
-    text-align: -999px;
-    height: 0;
-    visibility: hidden;
+  content: "fixin clear one rule at a time";
+  display: block;
+  clear: both;
+  font-size: 0;
+  line-height: 0;
+  text-align: -999px;
+  height: 0;
+  visibility: hidden;
 }
 
 sup {
-    font-size: 40%;
-    vertical-align: top;
+  font-size: 40%;
+  vertical-align: top;
 }
 
 h1 {
-    font-size: 1.5em;
-    font-family: 'Fredericka the Great';
-    line-height: 1em;
-    margin: 1em 0;
+  font-size: 1.5em;
+  font-family: 'Fredericka the Great';
+  line-height: 1em;
+  margin: 1em 0;
 }
 
 h2 {
-    font-weight: bold;
-    font-size: 1.2em;
-    margin: 1em 0;
+  font-weight: bold;
+  font-size: 1.2em;
+  margin: 1em 0;
 }
 
 #content .list li {
-    font-size: 1.2em;
-    margin-bottom: .5em;
+  font-size: 1.2em;
+  margin-bottom: .5em;
 }
 
 footer {
-    position: fixed;
-    bottom: 0;
-    background: #FFF;
-    font-size: .8em;
-    line-height: 1em;
-    padding: .4em;
-    border-top: double 2px #CCC;
-    border-right: double 2px #CCC;
+  position: fixed;
+  bottom: 0;
+  background: #FFF;
+  font-size: .8em;
+  line-height: 1em;
+  padding: .4em;
+  border-top: double 2px #CCC;
+  border-right: double 2px #CCC;
 }
 
 @media only screen and (max-device-width: 29em), only screen and (max-width: 29em) {
 
-    h1 {
-        padding: 0 .3em;
-    }
+  h1 {
+    padding: 0 .3em;
+  }
 
-    #practice-content h1 {
-        padding: 0;
-    }
+  #practice-content h1 {
+    padding: 0;
+  }
 
-    #container {
-        padding-bottom: 3em;
-    }
+  #container {
+    padding-bottom: 3em;
+  }
 
-    header {
-        position: static;
-        text-align: center;
-        height: auto;
-    }
+  header {
+    position: static;
+    text-align: center;
+    height: auto;
+  }
 
-    header nav {
-        position: static;
-        margin-top: 0;
-    }
+  header nav {
+    position: static;
+    margin-top: 0;
+  }
 
-    header nav .small.wawjr3d {
-        display: inline-block;
-        background-position: center center;
-        text-indent: -9999em;
-    }
+  header nav .small.wawjr3d {
+    display: inline-block;
+    background-position: center center;
+    text-indent: -9999em;
+  }
 
-    header nav:after {
-        content: none;
-    }
+  header nav:after {
+    content: none;
+  }
 
-    header nav:hover {
-        -webkit-box-shadow: none;
-        box-shadow: none;
-    }
+  header nav:hover {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
 
-    header nav > ul {
-        display: table;
-        text-align: inherit;
-        width: 100%;
-    }
+  header nav > ul {
+    display: table;
+    text-align: inherit;
+    width: 100%;
+  }
 
-    header nav li ul {
-        display: none;
-    }
+  header nav li ul {
+    display: none;
+  }
 
-    header nav > ul > li {
-        display: table-cell;
-        padding-left: 5px;
-        padding-right: 5px;
-    }
+  header nav > ul > li {
+    display: table-cell;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
 
-    header nav > ul > li:hover {
-        -webkit-box-shadow: none;
-        box-shadow: none;
-    }
+  header nav > ul > li:hover {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
 
-    #content {
-        width: auto;
-        padding: 0;
-    }
+  #content {
+    width: auto;
+    padding: 0;
+  }
 
-    ul.todo {
-        width: auto;
-    }
+  ul.todo {
+    width: auto;
+  }
 
-    body:not(.smiley-page) footer {
-        position: absolute;
-        text-align: center;
-        width: 100%;
-        border-right: 0 none;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-    }
+  body:not(.smiley-page) footer {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    border-right: 0 none;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
 
-    #content .list li {
-        font-size: 1em;
-        margin-bottom: 0;
-    }
+  #content .list li {
+    font-size: 1em;
+    margin-bottom: 0;
+  }
 
-    #content .list a {
-        display: block;
-        padding: .5em;
-        border-bottom: dotted 1px #CCC;
-    }
+  #content .list a {
+    display: block;
+    padding: .5em;
+    border-bottom: dotted 1px #CCC;
+  }
 
-    #content .list li:first-child a {
-        border-top: dotted 1px #CCC;
-    }
+  #content .list li:first-child a {
+    border-top: dotted 1px #CCC;
+  }
 }

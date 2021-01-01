@@ -20,23 +20,23 @@
 #calculator fieldset { margin-left: 2px; padding: 0; border: 0 none; }
 #calculator fieldset legend { display: none; }
 #calculator input[type=button] {
-	float: left;
-	background: #D5E0EE;
-	color: #333;
-	font: normal 11px/28px verdana;
-	text-align: center;
-	vertical-align: middle;
-	width: 32px;
-	height: 28px;
-	margin: 7px 0 0 7px;
-	padding: 0;
-	box-shadow: 0 0 1px #999;
-	border: solid 1px #999;
-	border-radius: 2px;
-	transition: background .4s ease, border-color .4s ease, box-shadow .4s ease;
-	-moz-transition: background .4s ease, border-color .4s ease, box-shadow .4s ease;
-	-webkit-transition: background .4s ease, border-color .4s ease, box-shadow .4s ease;
-	-o-transition: background .4s ease, border-color .4s ease, box-shadow .4s ease;
+  float: left;
+  background: #D5E0EE;
+  color: #333;
+  font: normal 11px/28px verdana;
+  text-align: center;
+  vertical-align: middle;
+  width: 32px;
+  height: 28px;
+  margin: 7px 0 0 7px;
+  padding: 0;
+  box-shadow: 0 0 1px #999;
+  border: solid 1px #999;
+  border-radius: 2px;
+  transition: background .4s ease, border-color .4s ease, box-shadow .4s ease;
+  -moz-transition: background .4s ease, border-color .4s ease, box-shadow .4s ease;
+  -webkit-transition: background .4s ease, border-color .4s ease, box-shadow .4s ease;
+  -o-transition: background .4s ease, border-color .4s ease, box-shadow .4s ease;
 }
 #calculator input[type=button]:hover { background: #FFE7CC; border-color: #FFDB00; box-shadow: 0 0 1px #FFDB00; cursor: pointer; transition-duration: .3s; -moz-transition-duration: .3s; -webkit-transition-duration: .3s; -o-transition-duration: .3s; }
 #calculator input[type=button]:active { background: #F4CC87; border-color: #C29B29; box-shadow: 0 0 1px #C29B29; transition-duration: .2s; -moz-transition-duration: .2s; -webkit-transition-duration: .2s; -o-transition-duration: .2s; }
@@ -52,28 +52,28 @@
 #status { float: left; margin: 20px; }
 
 ul.todo {
-    background: #EEE;
-    font-size: 12px;
-    width: 420px;
-    margin: 15px;
-    padding: 10px;
-    border: solid 1px #666;
-    box-shadow: 0 0 3px #666;
-    -webkit-box-shadow: 0 0 3px #666;
+  background: #EEE;
+  font-size: 12px;
+  width: 420px;
+  margin: 15px;
+  padding: 10px;
+  border: solid 1px #666;
+  box-shadow: 0 0 3px #666;
+  -webkit-box-shadow: 0 0 3px #666;
 }
 
 ul.todo:before {
-    content: "TODO:";
-    display: block;
-    color: #CCC;
-    font-weight: bold;
-    font-size: 13px;
-    padding-bottom: 5px;
+  content: "TODO:";
+  display: block;
+  color: #CCC;
+  font-weight: bold;
+  font-size: 13px;
+  padding-bottom: 5px;
 }
 
 ul.todo li {
-    color: #666;
-    line-height: 20px;
-    list-style: disc outside;
-    margin-left: 15px;
+  color: #666;
+  line-height: 20px;
+  list-style: disc outside;
+  margin-left: 15px;
 }

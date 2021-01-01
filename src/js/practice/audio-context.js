@@ -1,61 +1,57 @@
 (function(global, BandJS, undefined) {
-    "use strict";
+  "use strict";
 
-    var currentMusic;
+  var currentMusic;
 
-    document.querySelector(".stop_music").addEventListener("click", function() {
-        if (!currentMusic) {
-            return;
-        }
-
-        stopMusic(currentMusic);
-    });
-
-    document.querySelector(".im_different").addEventListener("click", function() {
-        currentMusic = playImDifferent();
-    });
-
-    function stopMusic(music) {
-        music.destroy();
+  document.querySelector(".stop_music").addEventListener("click", function() {
+    if (!currentMusic) {
+      return;
     }
 
-    function playImDifferent() {
-        var music = new BandJS();
-        music.setTimeSignature(2, 2);
-        music.setTempo(120);
+    stopMusic(currentMusic);
+  });
 
-        var piano = music.createInstrument();
+  document.querySelector(".im_different").addEventListener("click", function() {
+    currentMusic = playImDifferent();
+  });
 
-        playImDifferentMelody(piano)
-        .rest("whole");
-        playImDifferentMelody(piano);
+  function stopMusic(music) {
+    music.destroy();
+  }
 
-        piano.finish();
+  function playImDifferent() {
+    var music = new BandJS();
+    music.setTimeSignature(2, 2);
+    music.setTempo(120);
 
-        music.end();
+    var piano = music.createInstrument();
 
-        music.play();
+    playImDifferentMelody(piano)
+    .rest("whole");
+    playImDifferentMelody(piano);
 
-        return music;
-    }
+    piano.finish();
 
-    function playImDifferentMelody(piano) {
-        piano
-            .rest("quarter")
-            .note("whole", "C5")
-            .note("dottedHalf", "B4")
-            .note("dottedQuarter", "E4")
-            .note("tripletHalf", "A4")
-            .note("tripletHalf", "A4")
-            .note("whole", "F4")
-            .rest("whole")
-            .note("tripletHalf", "E4");
+    music.end();
 
-        return piano;
-    }
+    music.play();
 
-    function YEAH() {
+    return music;
+  }
 
-    }
+  function playImDifferentMelody(piano) {
+    piano
+      .rest("quarter")
+      .note("whole", "C5")
+      .note("dottedHalf", "B4")
+      .note("dottedQuarter", "E4")
+      .note("tripletHalf", "A4")
+      .note("tripletHalf", "A4")
+      .note("whole", "F4")
+      .rest("whole")
+      .note("tripletHalf", "E4");
+
+    return piano;
+  }
 
 })(this, BandJS);
