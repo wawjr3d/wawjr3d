@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>react calendar | wawjr3d</title>
+
+  {{> head }}
+
+  <meta name="description" content="A calendar Component in React by Wayne Warner" />
+
+  <meta name="twitter:description" content="A calendar Component in React by Wayne Warner">
+  <meta name="twitter:title" content="react calendar | wawjr3d">
+  <meta name="twitter:url" content="https://www.wawjr3d.com/practice/react-calendar.html">
+
+  <meta property="og:description" content="A calendar Component in React by Wayne Warner">
+  <meta property="og:title" content="react calendar | wawjr3d">
+  <meta property="og:url" content="https://www.wawjr3d.com/practice/react-calendar.html">
+
+  <link rel="canonical" href="https://www.wawjr3d.com/practice/react-calendar.html">
+
+  <style>
+    .calendar {
+      position: relative;
+      display: inline-block;
+    }
+
+    .prev,
+    .next {
+      position: absolute;
+      top: .3em;
+      color: #FFF;
+      font-size: 1.2em;
+      font-weight: bold;
+      z-index: 1;
+      cursor: pointer;
+      transition: opacity .2s ease-out;
+    }
+
+    .prev:hover,
+    .next:hover {
+      opacity: .7;
+    }
+
+    .prev {
+      left: .3em;
+    }
+
+    .next {
+      right: .3em;
+    }
+
+    .month {
+      background-color: #999;
+      color: #FFF;
+      font-size: 1.25em;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding: .3em;
+    }
+
+    .day {
+      background-color: #CCC;
+      font-weight: bold;
+      width: 1.5em;
+      padding: .3em;
+    }
+
+    .date {
+      text-align: center;
+      padding: .3em;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div id="container">
+    {{> header }}
+
+    <div id="practice-content">
+      <h1>React Calendar</h1>
+
+      <div id="root"></div>
+    </div>
+
+    {{> footer }}
+  </div>
+
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+  <script type="text/babel">
+    const monthNames = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
+    const monthDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    const days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
+
+    function Day({ month, date, year }) {
+      function logDate() {
+        console.log(`${ monthNames[month] }, ${ date } ${ year }`);
+      }
+
+      return <td className="date" onClick={ logDate }>{ date }</td>;
+    }
+
+    class Calendar extends React.Component {
+
+      constructor(props) {
+        super(props);
+
+        const { startDate = new Date() } = props;
+
+        this.state = {
+          month: startDate.getMonth(),
+          year: startDate.getFullYear()
+        };
+
+        this.handlePrev = this.handlePrev.bind(this);
+        this.handleNext = this.handleNext.bind(this);
+      }
+
+      handlePrev() {
+        this.setState(({ month, year }) => {
+          const newMonth = month - 1;
+          const lastYear = newMonth < 0;
+
+          return {
+            month: lastYear ? 11 : newMonth,
+            year: lastYear ? year - 1 : year
+          };
+        });
+      }
+
+      handleNext() {
+        this.setState(({ month, year }) => {
+          const newMonth = month + 1;
+          const nextYear = newMonth > 11;
+
+          return {
+            month: nextYear ? 0 : newMonth,
+            year: nextYear ? year + 1 : year
+          };
+        });
+      }
+
+      render() {
+        const { month, year } = this.state;
+        const monthName = monthNames[month];
+        const startDay = new Date(year, month, 1).getDay();
+        const daysInMonth = monthDays[month];
+        const weeks = [];
+        const lastInFirst = 7 - startDay;
+        const weeksToDraw = Math.ceil((daysInMonth - lastInFirst) / 7);
+
+        const firstWeek = [];
+
+        for (let i = 0; i < startDay; i++) {
+          firstWeek.push(<td></td>);
+        }
+
+        for (let i = 0; i < lastInFirst; i++) {
+          firstWeek.push(<Day month={ month } date={ i + 1 } year={ year } />);
+        }
+
+        weeks.push(
+          <tr>
+            { firstWeek }
+          </tr>
+        );
+
+        for (let i = 0; i < weeksToDraw; i++) {
+          const datesInWeek = [];
+
+          for (let j = 0; j < 7; j++) {
+            const date = i * 7 + j + 1 + lastInFirst;
+
+            if (date > daysInMonth) {
+              continue;
+            }
+
+            datesInWeek.push(<Day month={ month } date={ date } year={ year } />);
+          }
+
+          weeks.push(
+            <tr>
+              { datesInWeek }
+            </tr>
+          )
+        }
+
+        return (
+          <div className="calendar">
+            <span className="prev" onClick={ this.handlePrev }>&lt;</span>
+            <span className="next" onClick={ this.handleNext }>&gt;</span>
+            <table>
+              <thead>
+                <tr>
+                  <th className="month" colSpan="7">{ monthName } { year }</th>
+                </tr>
+                <tr>
+                  {days.map((day) =>
+                    <th className="day">{ day }</th>
+                  )}
+                </tr>
+              </thead>
+              <tbody>
+                { weeks }
+              </tbody>
+            </table>
+          </div>
+        );
+      }
+    }
+
+    ReactDOM.render(
+      <Calendar />,
+      document.getElementById("root")
+    );
+  </script>
+
+  {{> scripts }}
+</body>
+</html>

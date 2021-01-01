@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>List test | wawjr3d</title>
+
+  {{> head }}
+
+  <link href="/css/practice/list_test.css" type="text/css" rel="stylesheet">
+
+</head>
+<body>
+
+  <div id="container">
+
+
+    {{> header }}
+
+    <div id="practice-content">
+      <h1>List with too long items</h1>
+
+      <ul>
+        <li>
+          <span class="name">Wayne</span>
+          <span class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </span>
+        </li>
+        <li>
+          <span class="name">Wayne</span>
+          <span class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam velit sem, mattis non malesuada in. Nullam velit sem, mattis non malesuada in</span>
+        </li>
+        <li>
+          <span class="name">Wayne</span>
+          <span class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam velit sem, mattis non malesuada in</span>
+        </li>
+        <li>
+          <span class="name">Wayne</span>
+          <span class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam velit sem</span>
+        </li>
+        <li>
+          <span class="name">Wayne</span>
+          <span class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam velit sem, mattis non malesuada in</span>
+        </li>
+        <li>
+          <span class="name">Wayne</span>
+          <span class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam velit sem, mattis non malesuada in</span>
+        </li>
+        <li>
+          <span class="name">Wayne</span>
+          <span class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam velit sem, mattis non malesuada in</span>
+        </li>
+      </ul>
+    </div>
+
+    {{> footer }}
+
+  </div>
+
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script type="text/javascript">
+
+    $(function() {
+
+      $("ul").bind("loaded", function(){
+        $("li .text").filter(function(index) {
+
+          return this.scrollWidth > this.offsetWidth;
+
+        }).addClass("long");
+      });
+
+      $("ul").trigger("loaded");
+
+    });
+
+
+  </script>
+
+  {{> scripts }}
+</body>
+</html>

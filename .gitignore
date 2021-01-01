@@ -1,5 +1,10 @@
 # Project files#
 ################
 *.project
+.DS_Store
 
 urldecoder
+
+public
+mustacheData.json
+node_modules
