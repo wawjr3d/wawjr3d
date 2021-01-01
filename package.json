@@ -8,7 +8,6 @@
     "clean": "rm -rf public/* && mkdir -p public",
     "copy:static": "cp -R static/* public",
     "copy:assets": "cp -R src/js public && cp -R src/css public && cp -R src/images public",
-    "build:mustacheData": "echo '{ \"currentYear\": $(date +'%Y') }' > mustacheData.json",
     "build:templates": "./buildTemplates.sh",
     "build": "npm run clean && npm run copy:static && npm run copy:assets && npm run build:templates"
   },

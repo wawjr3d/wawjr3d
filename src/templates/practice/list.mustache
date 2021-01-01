@@ -13,13 +13,12 @@
 
   <div id="container">
 
-
     {{> header }}
 
     <div id="practice-content">
       <h1>List with too long items</h1>
 
-      <ul>
+      <ul class="too-long-list">
         <li>
           <span class="name">Wayne</span>
           <span class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </span>
@@ -55,26 +54,18 @@
 
   </div>
 
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
   <script type="text/javascript">
+    const list = document.querySelector('.too-long-list');
 
-    $(function() {
+    list.querySelectorAll('.text').forEach(function(el) {
+      if (el.scrollWidth <= el.offsetWidth) {
+        return;
+      }
 
-      $("ul").bind("loaded", function(){
-        $("li .text").filter(function(index) {
-
-          return this.scrollWidth > this.offsetWidth;
-
-        }).addClass("long");
-      });
-
-      $("ul").trigger("loaded");
-
+      el.classList.add('long');
     });
-
-
   </script>
 
-  {{> scripts }}
+  {{> analytics }}
 </body>
 </html>

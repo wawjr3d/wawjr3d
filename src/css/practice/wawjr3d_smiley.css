@@ -1,8 +1,8 @@
 #head { display: inline-block; position: absolute; top: 0; bottom: 0; left: 0; right: 0; background: yellow; text-align: center; width: 400px; height: 400px; border: solid 10px #000; margin: auto; border-radius: 250px; box-shadow: 0 0 20px #666; }
 
 #head {
-	background: -webkit-gradient(radial, 110 30%, 10, 110 30%, 100, from(#fff), to(yellow)) #f90;
-	background: -moz-radial-gradient(110px 30%, circle, #fff 10px, yellow 100px);
+  background: -webkit-gradient(radial, 110 30%, 10, 110 30%, 100, from(#fff), to(yellow)) #f90;
+  background: -moz-radial-gradient(110px 30%, circle, #fff 10px, yellow 100px);
 }
 
 #head * { display: inline-block; }
