@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Page Not Found | wawjr3d</title>
+
+  {{> head }}
+
+  <link href="/css/practice/frowny.css" type="text/css" rel="stylesheet">
+  <style type="text/css">
+    #content {
+      text-align: center;
+    }
+
+    .text404 {
+      font-size: 14em;
+    }
+
+    .head {
+      position: static;
+      font-size: 4px;
+    }
+
+    p {
+      font: bold 3em arial;
+      letter-spacing: 0.2em;
+      text-align: center;
+      text-transform: uppercase;
+      margin: .5em auto 0;
+    }
+
+    @media only screen and (max-device-width: 29em), only screen and (max-width: 29em) {
+            .text404 {
+                font-size: 6.75em;
+                margin-top: .3em;
+            }
+
+            .head {
+                font-size: 2px
+            }
+
+            p {
+                font-size: 1.5em;
+                margin-top: 1em;
+            }
+        }
+
+  </style>
+</head>
+<body>
+
+  <div id="container">
+    {{> header }}
+
+    <div id="content">
+      <div class="text404">
+
+        4<div class="head">
+
+          <div class="left eye"></div>
+          <div class="right eye"></div>
+
+          <div class="mouth"></div>
+
+        </div>4
+
+      </div>
+
+      <p>aw snip snap!<br>page not found</p>
+    </div>
+
+    {{> footer }}
+  </div>
+
+  {{> scripts }}
+</body>
+</html>

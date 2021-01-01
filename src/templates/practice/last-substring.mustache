@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>last substring | wawjr3d</title>
+
+  {{> head }}
+
+  <meta name="description" content="Implementation of finding alphabetically last substring in O(n) by Wayne Warner" />
+
+  <meta name="twitter:description" content="Implementation of finding alphabetically last substring in O(n) by Wayne Warner">
+  <meta name="twitter:title" content="last substring | wawjr3d">
+  <meta name="twitter:url" content="https://www.wawjr3d.com/practice/last-substring.html">
+
+  <meta property="og:description" content="Implementation of finding alphabetically last substring in O(n) by Wayne Warner">
+  <meta property="og:title" content="last substring | wawjr3d">
+  <meta property="og:url" content="https://www.wawjr3d.com/practice/last-substring.html">
+
+  <link rel="canonical" href="https://www.wawjr3d.com/practice/last-substring.html">
+
+  <style>
+    #string,
+    #last-substring {
+      font-size: 3em;
+    }
+
+    .tester {
+      margin-top: 1em;
+    }
+
+    @media only screen and (max-device-width: 29em), only screen and (max-width: 29em) {
+      #string,
+      #last-substring {
+        font-size: 1.5em;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    {{> header }}
+
+    <div id="practice-content">
+      <h1>Last substring</h1>
+
+      Write a program to find the alphabetically last substring of a string. In other words, if you were to write out all the substrings of a string and then sort them alphabetically, the last one would be the answer. For example "ab" -> "b", "banana" -> "nana", "bananb" -> "nb".
+
+      <div class="tester">
+        <input type="text" id="string" placeholder="type something to test">
+        <div id="last-substring"></div>
+      </div>
+    </div>
+
+    {{> footer }}
+  </div>
+
+  <script>
+    function compute(s) {
+      var candidate = "";
+      var replacement = "";
+
+      for (var i = 0, len = s.length; i < len; i++) {
+        var char = s[i];
+
+        if (char > candidate) {
+          candidate = char;
+          replacement = "";
+          continue;
+        }
+
+        candidate += char;
+
+        if (replacement) {
+          replacement += char;
+        }
+
+        if (char === candidate[0] && replacement.substr(-1) !== char) {
+          replacement = char;
+        }
+
+        if (replacement > candidate) {
+          candidate = replacement;
+          replacement = "";
+        }
+      }
+
+      return candidate;
+    }
+
+    var lastSubstring = document.getElementById("last-substring");
+    document.getElementById("string").addEventListener("keyup", function(e) {
+      lastSubstring.innerHTML = compute(e.target.value);
+    });
+
+  </script>
+
+  {{> scripts }}
+</body>
+</html>

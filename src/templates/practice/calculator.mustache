@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>calculator | wawjr3d</title>
+
+  {{> head }}
+
+  <meta name="description" content="Copying the windows calculator by Wayne Warner" />
+
+  <meta name="twitter:description" content="Copying the windows calculator by Wayne Warner">
+  <meta name="twitter:title" content="calculator | wawjr3d">
+  <meta name="twitter:url" content="https://www.wawjr3d.com/practice/calculator.html">
+  <meta name="twitter:image" content="https://wawjr3d.com/images/calculator.png">
+
+  <meta property="og:description" content="Copying the windows calculator by Wayne Warner">
+  <meta property="og:title" content="calculator | wawjr3d">
+  <meta property="og:url" content="https://www.wawjr3d.com/practice/calculator.html">
+  <meta property="og:image" content="https://wawjr3d.com/images/calculator.png">
+
+  <link rel="canonical" href="https://www.wawjr3d.com/practice/calculator.html">
+
+  <link href="/css/practice/calculator.css" type="text/css" rel="stylesheet" media="all">
+</head>
+<body>
+
+  <div id="container">
+    {{> header }}
+
+    <div id="practice-content">
+      <h1>Calculator</h1>
+
+      <ul class="todo">
+        <li>Repeated equals bug</li>
+        <li>Advanced calculators</li>
+      </ul>
+
+      <div id="calculator">
+        <nav>
+          <ul>
+            <li>
+              <a href="javascript:{}">View</a>
+              <ul>
+                <li><a href="#">Standard <kbd>Alt+1</kbd></a></li>
+                <li><a href="#">Scientific <kbd>Alt+2</kbd></a></li>
+                <li><a href="#">Programmer <kbd>Alt+3</kbd></a></li>
+                <li><a href="#">Statistics <kbd>Alt+4</kbd></a></li>
+                <li><a href="#">History <kbd>Ctrl+H</kbd></a></li>
+                <li><a href="#">Digit Grouping</a></li>
+                <li><a href="#">Basic <kbd>Ctrl+F4</kbd></a></li>
+                <li><a href="#">Unit conversion <kbd>Ctrl+U</kbd></a></li>
+                <li><a href="#">Date calculation <kbd>Ctrl+E</kbd></a></li>
+                <li>
+                  <a href="#">Worksheets</a>
+                  <ul>
+                    <li><a href="#">Mortgage</a></li>
+                    <li><a href="#">Vehicle lease</a></li>
+                    <li><a href="#">Fuel economy (mpg)</a></li>
+                    <li><a href="#">Fuel economy (L/100 km)</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="javascript:{}">Edit</a>
+              <ul>
+                <li><a href="#">Copy <kbd>Ctrl+C</kbd></a></li>
+                <li><a href="#">Paste <kbd>Ctrl+V</kbd></a></li>
+                <li>
+                  <a href="#">History</a>
+                  <ul>
+                    <li><a href="#">Copy history</a></li>
+                    <li><a href="#">Edit <kbd>F2</kbd></a></li>
+                    <li><a href="#">Cancel edit <kbd>Esc</kbd></a></li>
+                    <li><a href="#">Clear <kbd>Ctrl+Shift+D</kbd></a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="javascript:{}">Help</a>
+              <ul>
+                <li><a href="#">View Help <kbd>F1</kbd></a></li>
+                <li><a href="#">About Calculator</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+
+        <form action="#" method="POST">
+
+          <input type="text" value="0" readonly="readonly" disabled="disabled" />
+
+          <fieldset>
+            <legend>Buttons</legend>
+
+            <input type="button" name="memory_clear" value="MC" />
+            <input type="button" name="memory_recall" value="MR" />
+            <input type="button" name="memory_set" value="MS" />
+            <input type="button" name="memory_add" value="M+" />
+            <input type="button" name="memory_subtract" value="M-" />
+            <input type="button" name="backspace" value="&larr;" class="number" />
+            <input type="button" name="clear_entry" value="CE" />
+            <input type="button" name="clear" value="C" />
+            <input type="button" name="toggle_sign" value="&#x00B1;" class="number" />
+            <input type="button" name="square_root" value="&#x221A;" class="function" />
+            <input type="button" name="number_7" value="7" class="number" />
+            <input type="button" name="number_8" value="8" class="number" />
+            <input type="button" name="number_9" value="9" class="number" />
+            <input type="button" name="divide" value="/" class="function" />
+            <input type="button" name="factorial" value="n!" class="function" />
+            <input type="button" name="number_4" value="4" class="number" />
+            <input type="button" name="number_5" value="5" class="number" />
+            <input type="button" name="number_6" value="6" class="number" />
+            <input type="button" name="multiply" value="*" class="function" />
+            <input type="button" name="reciprocal" value="1/x" class="function" />
+            <input type="button" name="number_1" value="1" class="number" />
+            <input type="button" name="number_2" value="2" class="number" />
+            <input type="button" name="number_3" value="3" class="number" />
+            <input type="button" name="subtract" value="-" class="function" />
+            <input type="button" name="equals" value="=" class="function" />
+            <input type="button" name="number_0" value="0" class="number" />
+            <input type="button" name="decimal" value="." class="number" />
+            <input type="button" name="add" value="+" class="function" />
+          </fieldset>
+        </form>
+      </div>
+
+      <div id="status">
+        <strong>State</strong>
+        <p></p>
+      </div>
+    </div>
+
+    {{> footer }}
+  </div>
+
+
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/practice/calculator.js"></script>
+  <script type="text/javascript" src="/js/practice/calculator-display.js"></script>
+
+  {{> scripts }}
+</body>
+</html>
