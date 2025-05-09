@@ -7,9 +7,7 @@
 .smiley {
     display: inline-block;
     overflow: hidden;
-    background: yellow;
-    background: -webkit-radial-gradient(75% 30%, circle, #fff 1em, yellow 25%);
-    background: -moz-radial-gradient(75% 30%, circle, #fff 1em, yellow 25%);
+    background: radial-gradient(circle at 75% 30%, #fff 1em, yellow 25%);
     font-size: 5px;
     word-spacing: 0;
     line-height: 1em;
@@ -19,8 +17,6 @@
     border: solid .5em #000;
     margin: auto;
     border-radius: 12.5em;
-    -moz-box-shadow: 0 0 1em #666;
-    -webkit-box-shadow: 0 0 1em #666;
     box-shadow: 0 0 1em #666;
     box-sizing: content-box;
 }
@@ -118,15 +114,7 @@
     top: -50%;
     left: 0;
     overflow: hidden;
-    background: #ffffff; /* Old browsers */
-    /* IE9 SVG, needs conditional override of 'filter' to 'none' */
-    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQlIiBzdG9wLWNvbG9yPSIjZmZmZmZmIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iNSUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI2JSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjE0JSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjE1JSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjE2JSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjI0JSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjI1JSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjI2JSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjM0JSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjM1JSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjM2JSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ0JSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ1JSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ2JSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjU0JSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjU1JSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjU2JSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjY0JSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjY1JSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjY2JSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9Ijc0JSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9Ijc1JSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9Ijc2JSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9Ijg0JSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9Ijg1JSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9Ijg2JSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9Ijk0JSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9Ijk1JSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9Ijk2JSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-    background: -moz-linear-gradient(left,  #ffffff 0%, #ffffff 4%, #000000 5%, #ffffff 6%, #ffffff 14%, #000000 15%, #ffffff 16%, #ffffff 24%, #000000 25%, #ffffff 26%, #ffffff 34%, #000000 35%, #ffffff 36%, #ffffff 44%, #000000 45%, #ffffff 46%, #ffffff 54%, #000000 55%, #ffffff 56%, #ffffff 64%, #000000 65%, #ffffff 66%, #ffffff 74%, #000000 75%, #ffffff 76%, #ffffff 84%, #000000 85%, #ffffff 86%, #ffffff 94%, #000000 95%, #ffffff 96%, #ffffff 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#ffffff), color-stop(4%,#ffffff), color-stop(5%,#000000), color-stop(6%,#ffffff), color-stop(14%,#ffffff), color-stop(15%,#000000), color-stop(16%,#ffffff), color-stop(24%,#ffffff), color-stop(25%,#000000), color-stop(26%,#ffffff), color-stop(34%,#ffffff), color-stop(35%,#000000), color-stop(36%,#ffffff), color-stop(44%,#ffffff), color-stop(45%,#000000), color-stop(46%,#ffffff), color-stop(54%,#ffffff), color-stop(55%,#000000), color-stop(56%,#ffffff), color-stop(64%,#ffffff), color-stop(65%,#000000), color-stop(66%,#ffffff), color-stop(74%,#ffffff), color-stop(75%,#000000), color-stop(76%,#ffffff), color-stop(84%,#ffffff), color-stop(85%,#000000), color-stop(86%,#ffffff), color-stop(94%,#ffffff), color-stop(95%,#000000), color-stop(96%,#ffffff), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(left,  #ffffff 0%,#ffffff 4%,#000000 5%,#ffffff 6%,#ffffff 14%,#000000 15%,#ffffff 16%,#ffffff 24%,#000000 25%,#ffffff 26%,#ffffff 34%,#000000 35%,#ffffff 36%,#ffffff 44%,#000000 45%,#ffffff 46%,#ffffff 54%,#000000 55%,#ffffff 56%,#ffffff 64%,#000000 65%,#ffffff 66%,#ffffff 74%,#000000 75%,#ffffff 76%,#ffffff 84%,#000000 85%,#ffffff 86%,#ffffff 94%,#000000 95%,#ffffff 96%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(left,  #ffffff 0%,#ffffff 4%,#000000 5%,#ffffff 6%,#ffffff 14%,#000000 15%,#ffffff 16%,#ffffff 24%,#000000 25%,#ffffff 26%,#ffffff 34%,#000000 35%,#ffffff 36%,#ffffff 44%,#000000 45%,#ffffff 46%,#ffffff 54%,#000000 55%,#ffffff 56%,#ffffff 64%,#000000 65%,#ffffff 66%,#ffffff 74%,#000000 75%,#ffffff 76%,#ffffff 84%,#000000 85%,#ffffff 86%,#ffffff 94%,#000000 95%,#ffffff 96%,#ffffff 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(left,  #ffffff 0%,#ffffff 4%,#000000 5%,#ffffff 6%,#ffffff 14%,#000000 15%,#ffffff 16%,#ffffff 24%,#000000 25%,#ffffff 26%,#ffffff 34%,#000000 35%,#ffffff 36%,#ffffff 44%,#000000 45%,#ffffff 46%,#ffffff 54%,#000000 55%,#ffffff 56%,#ffffff 64%,#000000 65%,#ffffff 66%,#ffffff 74%,#000000 75%,#ffffff 76%,#ffffff 84%,#000000 85%,#ffffff 86%,#ffffff 94%,#000000 95%,#ffffff 96%,#ffffff 100%); /* IE10+ */
-    background: linear-gradient(left,  #ffffff 0%,#ffffff 4%,#000000 5%,#ffffff 6%,#ffffff 14%,#000000 15%,#ffffff 16%,#ffffff 24%,#000000 25%,#ffffff 26%,#ffffff 34%,#000000 35%,#ffffff 36%,#ffffff 44%,#000000 45%,#ffffff 46%,#ffffff 54%,#000000 55%,#ffffff 56%,#ffffff 64%,#000000 65%,#ffffff 66%,#ffffff 74%,#000000 75%,#ffffff 76%,#ffffff 84%,#000000 85%,#ffffff 86%,#ffffff 94%,#000000 95%,#ffffff 96%,#ffffff 100%); /* W3C */
+    background: linear-gradient(to right,  #ffffff 0%,#ffffff 4%,#000000 5%,#ffffff 6%,#ffffff 14%,#000000 15%,#ffffff 16%,#ffffff 24%,#000000 25%,#ffffff 26%,#ffffff 34%,#000000 35%,#ffffff 36%,#ffffff 44%,#000000 45%,#ffffff 46%,#ffffff 54%,#000000 55%,#ffffff 56%,#ffffff 64%,#000000 65%,#ffffff 66%,#ffffff 74%,#000000 75%,#ffffff 76%,#ffffff 84%,#000000 85%,#ffffff 86%,#ffffff 94%,#000000 95%,#ffffff 96%,#ffffff 100%);
     word-spacing: 1em;
     text-align: center;
     width: 100%;
@@ -145,9 +133,6 @@
     width: 2em;
     height: 1.5em;
     border-top: solid .25em #000;
-    -ms-transform: rotate(-20deg);
-    -moz-transform: rotate(-20deg);
-    -webkit-transform: rotate(-20deg);
     transform: rotate(-20deg);
 }
 
@@ -170,9 +155,6 @@
     width: 2em;
     height: 1.5em;
     border-top: solid .25em #000;
-    -ms-transform: rotate(20deg);
-    -moz-transform: rotate(20deg);
-    -webkit-transform: rotate(20deg);
     transform: rotate(20deg);
 }
 
@@ -198,17 +180,11 @@
 }
 
 .angry.smiley .left.eye:before {
-    -ms-transform: rotate(15deg);
-    -moz-transform: rotate(15deg);
-    -webkit-transform: rotate(15deg);
     transform: rotate(15deg);
     border-radius: 0;
 }
 
 .angry.smiley .right.eye:before {
-    -ms-transform: rotate(-15deg);
-    -moz-transform: rotate(-15deg);
-    -webkit-transform: rotate(-15deg);
     transform: rotate(-15deg);
     border-radius: 0;
 }
@@ -233,18 +209,12 @@
 .constipated.smiley .left.eye:before {
     left: 0;
     border-radius: 0;
-    -ms-transform: rotate(30deg);
-    -moz-transform: rotate(30deg);
-    -webkit-transform: rotate(30deg);
     transform: rotate(30deg);
 }
 
 .constipated.smiley .right.eye:before {
     right: 0;
     border-radius: 0;
-    -ms-transform: rotate(-30deg);
-    -moz-transform: rotate(-30deg);
-    -webkit-transform: rotate(-30deg);
     transform: rotate(-30deg);
 }
 

@@ -1,3 +1,21 @@
+:root {
+  --link-color: #999;
+  --link-hover-color: #BBB;
+  --background: #FFF;
+  --background-accent: #CCC;
+  --text-color: #000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --link-color: #aaa;
+    --link-hover-color: #CDCDCD;
+    --background: #1B1B1B;
+    --background-accent: #4fc3f7;
+    --text-color: #e0e0e0;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -5,20 +23,23 @@
 html,
 body {
   height: 100%;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
+  background: var(--background);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a,
 .link {
-  color: #999;
+  color: var(--link-color);
   text-decoration: none;
   cursor: pointer;
+  transition: color 0.3s ease;
 }
 
 a:hover,
 .link:hover {
-  color: #BBB;
+  color: var(--link-hover-color);
   text-decoration: underline;
 }
 
@@ -27,8 +48,7 @@ a:hover,
   font: normal 1em arial, helvetica;
   min-height: 100%;
   padding-bottom: 1.4em;
-  border-top: solid 1px #CCC;
-  -moz-box-sizing: border-box;
+  border-top: solid 1px var(--background-accent);
   box-sizing: border-box;
 }
 
@@ -50,30 +70,29 @@ header nav {
   position: fixed;
   top: 0;
   left: 0;
-  background: #FFF;
+  background: var(--background);
   text-align: center;
   width: 100%;
-  border-bottom: solid 1px #CCC;
+  border-bottom: solid 1px var(--background-accent);
   z-index: 100;
 }
 
 header nav > ul {
-  background: #FFF;
+  background: var(--background);
   text-align: left;
 }
 
 header nav > ul > li {
   display: inline-block;
   position: relative;
-  background: #FFF;
+  background: var(--background);
   height: 30px;
   padding: 5px 10px;
   cursor: pointer;
 }
 
 header nav > ul > li:hover {
-  -webkit-box-shadow: 0 0 5px #CCC;
-  box-shadow: 0 0 5px #CCC;
+  box-shadow: 1px 0 0 var(--background-accent);
 }
 
 header nav li a {
@@ -89,14 +108,14 @@ header nav li ul {
   position: absolute;
   top: 30px;
   left: 0;
-  background: #FFF;
+  background: var(--background);
   white-space: nowrap;
   height: auto;
   padding: 10px;
-  border: solid 1px #CCC;
+  border: solid 1px var(--background-accent);
   z-index: -1;
   opacity: 0;
-  box-shadow: 2px 2px 10px #CCC;
+  box-shadow: .1em .1em 0 var(--background-accent);
   transform: translateY(-100%);
   transition: transform .2s ease, opacity .2s ease;
 }
@@ -116,7 +135,7 @@ header nav li:hover ul {
 }
 
 header nav li li:hover a {
-  color: #666;
+  color: var(--link-hover-color);
 }
 
 .view_all {
@@ -168,12 +187,12 @@ h2 {
 footer {
   position: fixed;
   bottom: 0;
-  background: #FFF;
+  background: var(--background);
   font-size: .8em;
   line-height: 1em;
   padding: .4em;
-  border-top: double 2px #CCC;
-  border-right: double 2px #CCC;
+  border-top: double 2px var(--background-accent);
+  border-right: double 2px var(--background-accent);
 }
 
 @media only screen and (max-device-width: 29em), only screen and (max-width: 29em) {
@@ -212,13 +231,12 @@ footer {
   }
 
   header nav:hover {
-    -webkit-box-shadow: none;
     box-shadow: none;
   }
 
   header nav > ul {
-    display: table;
-    text-align: inherit;
+    display: flex;
+    justify-content: space-evenly;
     width: 100%;
   }
 
@@ -227,13 +245,11 @@ footer {
   }
 
   header nav > ul > li {
-    display: table-cell;
     padding-left: 5px;
     padding-right: 5px;
   }
 
   header nav > ul > li:hover {
-    -webkit-box-shadow: none;
     box-shadow: none;
   }
 
@@ -251,7 +267,6 @@ footer {
     text-align: center;
     width: 100%;
     border-right: 0 none;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
   }
 
@@ -263,10 +278,10 @@ footer {
   #content .list a {
     display: block;
     padding: .5em;
-    border-bottom: dotted 1px #CCC;
+    border-bottom: dotted 1px var(--background-accent);
   }
 
   #content .list li:first-child a {
-    border-top: dotted 1px #CCC;
+    border-top: dotted 1px var(--background-accent);
   }
 }

@@ -4,7 +4,7 @@
   "description": "**wawjr3d**",
   "main": "index.js",
   "scripts": {
-    "start": "node server",
+    "start": "npm run build && node server",
     "clean": "rm -rf public/* && mkdir -p public",
     "copy:static": "cp -R static/* public",
     "copy:assets": "cp -R src/js public && cp -R src/css public && cp -R src/images public",
@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/wawjr3d/wawjr3d#readme",
   "devDependencies": {
-    "express": "^4.17.1",
-    "mustache": "^4.1.0"
+    "express": "^5.1.0",
+    "mustache": "^4.2.0"
   }
 }

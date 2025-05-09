@@ -19,8 +19,7 @@
 }
 
 .head {
-  background: -webkit-radial-gradient(75% 30%, circle, #fff 1em, yellow 25%);
-  background: -moz-radial-gradient(75% 30%, circle, #fff 1em, yellow 25%);
+  background: radial-gradient(circle at 75% 30%, #fff 1em, yellow 25%);
 }
 
 .head * {
