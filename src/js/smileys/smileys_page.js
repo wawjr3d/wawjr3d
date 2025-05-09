@@ -116,10 +116,14 @@
   }
 
   function track(action, what) {
-    ga("send", "event", {
-      eventCategory: "smileys",
-      eventAction: action,
-      eventLabel: "smiley." + what,
+    if (!window.goatcounter || !window.goatcounter.count) {
+      return;
+    }
+
+    goatcounter.count({
+      path: `${action}-${what}`,
+      title: "smileys." + what,
+      event: true,
     });
   }
 

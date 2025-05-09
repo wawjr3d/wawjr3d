@@ -1,13 +1,37 @@
+:root {
+    --background: #FFF;
+    --background-accent: #CCC;
+    --control-color: #000;
+    --legend-color: #000;
+    --input-background: #FFF;
+    --input-text-color: #000;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: #1B1B1B;
+      --background-accent: #CCC;
+      --control-color: #e0e0e0;
+      --legend-color: #e0e0e0;
+      --input-background: #343434;
+      --input-text-color: #e0e0e0;
+    }
+  }
+
 body,
 html {
     height: 100%;
 }
 
 body {
-    background: #ffffff; /* Old browsers */
+    background: var(--background);
     font: normal 1em sans-serif;
     text-align: center;
     overflow: hidden;
+}
+
+legend {
+    color: var(--legend-color);
 }
 
 label {
@@ -54,6 +78,8 @@ input[name=size] {
 select,
 input {
     font-size: 3vh;
+    background: var(--input-background);
+    color: var(--input-text-color);
 }
 
 .up,
@@ -82,12 +108,12 @@ input {
 
 .up:before {
     top: .5em;
-    border-color: #000 transparent transparent #000;
+    border-color: var(--control-color) transparent transparent var(--control-color);
 }
 
 .down:before {
     bottom: .2em;
-    border-color: transparent #000 #000 transparent;
+    border-color: transparent var(--control-color) var(--control-color) transparent;
 }
 
 legend {
