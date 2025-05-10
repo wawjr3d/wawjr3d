@@ -1,0 +1,141 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background);
+    font-family: 'Istok Web', sans-serif;
+    font-size: 16px;
+    color: var(--text-color);
+    line-height: 1.3em;
+    padding-top: 1px;
+}
+
+h1,
+.decode-form,
+.output {
+    margin: 2rem;
+}
+
+h1 {
+    margin-bottom: 0;
+}
+
+.decode-form {
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+.encoded {
+    display: block;
+    background-color: var(--input-background);
+    color: var(--input-text-color);
+    font-size: 1.2rem;
+    width: 100%;
+    height: 40vh;
+    min-height: 200px;
+    padding: .5rem;
+    border: solid 1px var(--background-accent);
+    resize: none;
+}
+
+.submit-button {
+    position: relative;
+    background-color: var(--text-color);
+    color: var(--background);
+    font-family: monospace;
+    font-size: .9rem;
+    margin-top: .75rem;
+    padding: .75em;
+    cursor: pointer;
+    border: none;
+    outline: 0;
+    transition: all .2s ease-in-out;
+}
+
+.submit-button:active {
+    top: 2px;
+    left: 2px;
+    box-shadow: 1px 1px 0 0 #BBB inset;
+}
+
+.output {
+    display: flex;
+    margin-top: 0;
+    opacity: 0;
+    transition: opacity .2s ease-out;
+}
+
+.output.with-results {
+    opacity: 1;
+}
+
+.decoded::before,
+.decoded-params::before {
+    display: block;
+    font-size: 1.5rem;
+    width: 100%;
+    padding-bottom: .2em;
+    margin-bottom: .6em;
+}
+
+.decoded {
+    flex: 3;
+    word-break: break-all;
+    line-height: 1.5;
+    margin-top: 2rem;
+
+    &::before {
+        content: "Decoded";
+    }
+}
+
+.decoded-params {
+    flex: 2;
+    margin-top: 2rem;
+    margin-left: 2rem;
+
+    &::before {
+        content: "Decoded params";
+    }
+}
+
+.decoded-line {
+    display: flex;
+    line-height: 1.25;
+    word-break: break-all;
+    padding-top: .375em;
+    padding-bottom: .375em;
+    border-bottom: solid 1px #EEE;
+}
+
+.decoded-key {
+    flex: 2;
+    padding-right: 1em;
+}
+
+.decoded-value {
+    flex: 3;
+}
+
+@media screen and (max-width: 50em) {
+
+    h1,
+    .decode-form,
+    .output {
+        margin: 1rem;
+    }
+
+    h1 {
+        padding: 0;
+    }
+
+    .output {
+        display: block;
+    }
+
+    .decoded-params {
+        margin-left: 0;
+    }
+
+}
