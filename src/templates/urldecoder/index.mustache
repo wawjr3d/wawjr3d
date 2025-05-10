@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>url decoder | wawjr3d</title>
+
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/favicon.png">
+
+  <link rel="canonical" href="https://www.wawjr3d.com/urldecoder">
+  <meta name="description" content="A practical url decoder by Wayne Warner" />
+  <meta name="author" content="wawjr3d" />
+  <meta name="keywords" content="wawjr3d, urldecoder" />
+
+  <meta name="twitter:description" content="A practical url decoder by Wayne Warner">
+  <meta name="twitter:title" content="url decoder | wawjr3d">
+  <meta name="twitter:url" content="https://www.wawjr3d.com/urldecoder">
+
+  <meta property="og:description" content="A practical url decoder by Wayne Warner">
+  <meta property="og:title" content="url decoder | wawjr3d">
+  <meta property="og:url" content="https://www.wawjr3d.com/urldecoder">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://fonts.googleapis.com/css?family=Istok+Web" rel="stylesheet" type="text/css">
+  <link href="/css/reset.css" type="text/css" rel="stylesheet">
+  <link href="/css/wawjr3d.css" type="text/css" rel="stylesheet">
+  <link href="/css/urldecoder/urldecoder.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+  <div id="container">
+    <h1>url decoder</h1>
+    <form method="GET" action="" class="decode-form">
+      <textarea class="encoded" name="encoded" placeholder="(ex. http://www.example.com/?a=an%20example&amp;b=2)"></textarea>
+
+      <input type="submit" value="Decode >" class="submit-button btn">
+    </form>
+
+    <div class="output">
+      <div class="decoded"></div>
+      <dl class="decoded-params"></dl>
+    </div>
+
+    {{> footer }}  
+  </div>
+
+  {{> analytics }}
+
+  <script type="text/javascript" src="/js/urldecoder/urldecoder.js" async></script>
+
+</body>
+</html>
