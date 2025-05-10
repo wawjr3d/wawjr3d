@@ -36,7 +36,7 @@
   Calculator.Operand = function(value) {
     this.value = parseFloat(value);
 
-    if (this.value == NaN) { this.value = 0; }
+    if (this.value === NaN) { this.value = 0; }
   };
 
   Calculator.Operand.prototype = $.extend(new Calculator.Input(), Calculator.Operand.prototype, {

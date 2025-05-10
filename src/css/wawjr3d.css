@@ -4,6 +4,8 @@
   --background: #FFF;
   --background-accent: #CCC;
   --text-color: #000;
+  --input-background: #FFF;
+  --input-text-color: #000;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,6 +15,8 @@
     --background: #1B1B1B;
     --background-accent: #4fc3f7;
     --text-color: #e0e0e0;
+    --input-background: #343434;
+    --input-text-color: #e0e0e0;
   }
 }
 

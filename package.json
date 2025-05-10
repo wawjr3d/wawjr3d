@@ -8,8 +8,9 @@
     "clean": "rm -rf public/* && mkdir -p public",
     "copy:static": "cp -R static/* public",
     "copy:assets": "cp -R src/js public && cp -R src/css public && cp -R src/images public",
+    "build:js": "esbuild src/js/**/*.js --outdir=public --outbase=src --bundle --platform=browser --target=es2017 --minify --sourcemap",
     "build:templates": "./buildTemplates.sh",
-    "build": "npm run clean && npm run copy:static && npm run copy:assets && npm run build:templates"
+    "build": "npm run clean && npm run copy:static && npm run copy:assets && npm run build:js && npm run build:templates"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,11 @@
   },
   "homepage": "https://github.com/wawjr3d/wawjr3d#readme",
   "devDependencies": {
+    "esbuild": "^0.25.4",
     "express": "^5.1.0",
     "mustache": "^4.2.0"
+  },
+  "dependencies": {
+    "qs": "^6.14.0"
   }
 }
