@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.wawjr3d.com/sitemap.xml 

@@ -10,7 +10,8 @@
     "copy:assets": "cp -R src/js public && cp -R src/css public && cp -R src/images public",
     "build:js": "esbuild src/js/**/*.js --outdir=public --outbase=src --bundle --platform=browser --target=es2017 --minify --sourcemap",
     "build:templates": "./buildTemplates.sh",
-    "build": "npm run clean && npm run copy:static && npm run copy:assets && npm run build:js && npm run build:templates"
+    "build:sitemap": "node scripts/generate-sitemap.js",
+    "build": "npm run clean && npm run copy:static && npm run copy:assets && npm run build:js && npm run build:templates && npm run build:sitemap"
   },
   "repository": {
     "type": "git",
