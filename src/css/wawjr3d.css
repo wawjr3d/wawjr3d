@@ -6,10 +6,6 @@
   --text-color: #000;
   --input-background: #FFF;
   --input-text-color: #000;
-
-  --download-button-background: #007bff;
-  --download-button-text-color: #fff;
-  --download-button-hover-background: #0056b3;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -205,7 +201,7 @@ footer {
   display: inline-block;
   padding: 10px 20px;
   background-color: #007bff;
-  color: white;
+  color: #fff;
   text-decoration: none;
   border-radius: 4px;
 }
