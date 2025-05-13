@@ -101,11 +101,11 @@
   </style>
 
 </head>
-<body>
+<body class="content-page">
   <div id="container">
     {{> header }}
 
-    <div id="practice-content">
+    <div id="content">
       <h1>Random Coding</h1>
 
       <div id="infinite-recursion" class="coding-add coding">
@@ -289,10 +289,10 @@
         tableOfContentsEl.appendChild(li);
       });
 
-      var practiceContentEl = document.getElementById("practice-content");
-      var h1 = practiceContentEl.querySelector("h1");
+      var contentEl = document.getElementById("content");
+      var h1 = contentEl.querySelector("h1");
 
-      practiceContentEl.insertBefore(tableOfContentsEl, h1.nextSibling);
+      contentEl.insertBefore(tableOfContentsEl, h1.nextSibling);
     })();
 
     (function() {

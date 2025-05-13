@@ -1,0 +1,30 @@
+.talk-meta {
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.talk-meta .date {
+  font-style: italic;
+}
+
+.pdf-container {
+  width: 100%;
+  height: 600px;
+  margin: 20px 0;
+}
+
+.pdf-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.download-link {
+  margin-top: 10px;
+}
+
+@media (max-width: 29em) {
+  .pdf-container {
+    display: none;
+  }
+}
