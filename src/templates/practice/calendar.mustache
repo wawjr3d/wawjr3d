@@ -40,11 +40,11 @@
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
   <![endif]-->
 </head>
-<body>
+<body class="content-page">
   <div id="container">
     {{> header }}
 
-    <div id="practice-content">
+    <div id="content">
       <h1>Calendar</h1>
 
     </div>
@@ -154,7 +154,7 @@
       return calendar_display_string_builder.join("");
     }
 
-    document.getElementById("practice-content").innerHTML += buildCalendarString({
+    document.getElementById("content").innerHTML += buildCalendarString({
       end_month : 6,
       end_date : 15
     });

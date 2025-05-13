@@ -146,15 +146,13 @@ header nav li li:hover a {
   font-weight: bold;
 }
 
-#content,
-#practice-content {
+#content {
   max-width: 61em;
   padding: 1em;
   margin: 0 auto;
 }
 
-#content:after,
-#practice-content:after {
+#content:after {
   content: "fixin clear one rule at a time";
   display: block;
   clear: both;
@@ -199,15 +197,20 @@ footer {
   border-right: double 2px var(--background-accent);
 }
 
-@media only screen and (max-device-width: 29em), only screen and (max-width: 29em) {
+.download-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+}
 
-  h1 {
-    padding: 0 .3em;
-  }
+.download-button:hover {
+  background-color: #0056b3;
+}
 
-  #practice-content h1 {
-    padding: 0;
-  }
+@media (max-width: 29em) {
 
   #container {
     padding-bottom: 3em;
@@ -257,11 +260,19 @@ footer {
     box-shadow: none;
   }
 
-  #content {
+  .listing-page #content {
     width: auto;
     padding: 0;
   }
 
+  .listing-page h1 {
+    padding: 0 .3em;
+  }
+
+  .content-page h1 {
+    padding: 0;
+  }
+  
   ul.todo {
     width: auto;
   }
