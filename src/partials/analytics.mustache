@@ -1,1 +1,22 @@
 <script data-goatcounter="https://wawjr3d.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+<script>
+  [...document.querySelectorAll('.main-header nav')].forEach(nav =>  {
+    nav.addEventListener('click', (e) => {
+      if (!window.goatcounter || !window.goatcounter.count) {
+        return;
+      }
+
+      if (e.target.matches('a')) {
+        const linkText = e.target.textContent.trim();
+        const linkHref = e.target.getAttribute('href');
+
+        window.goatcounter.count({
+          path: `nav_click_${linkText}`,
+          title: `navigation.${linkText}`,
+          event: true,
+        });
+      }
+    });
+  });
+</script>
