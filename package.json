@@ -11,7 +11,8 @@
     "build:js": "esbuild src/js/**/*.js --outdir=public --outbase=src --bundle --platform=browser --target=es2017 --minify --sourcemap",
     "build:templates": "./buildTemplates.sh",
     "build:sitemap": "node scripts/generate-sitemap.js",
-    "build": "npm run clean && npm run copy:static && npm run copy:assets && npm run build:js && npm run build:templates && npm run build:sitemap"
+    "build": "npm run clean && npm run copy:static && npm run copy:assets && npm run build:js && npm run build:templates && npm run build:sitemap",
+    "test": "mocha tests/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -24,8 +25,10 @@
   },
   "homepage": "https://github.com/wawjr3d/wawjr3d#readme",
   "devDependencies": {
+    "chai": "^5.1.0",
     "esbuild": "^0.25.4",
     "express": "^5.1.0",
+    "mocha": "^10.3.0",
     "mustache": "^4.2.0"
   },
   "dependencies": {
