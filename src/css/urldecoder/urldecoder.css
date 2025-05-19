@@ -94,7 +94,7 @@ h1 {
     margin-left: 2rem;
 
     &::before {
-        content: "Decoded params";
+        content: "Decoded key/value pairs";
     }
 }
 
