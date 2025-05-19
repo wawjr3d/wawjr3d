@@ -1,10 +1,13 @@
 .talk-meta {
   margin-bottom: 20px;
-  color: #666;
 }
 
 .talk-meta .date {
   font-style: italic;
+}
+
+.talk-meta .description {
+  margin: 1em 0;
 }
 
 .pdf-container {
