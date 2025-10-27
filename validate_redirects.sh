@@ -5,6 +5,10 @@ set -euo pipefail
 declare -a redirects=(
   "https://wawjr3d.com/talks/responsive-video https://wawjr3d.com/talks/responsive-video.html"
   "https://wawjr3d.com/talks/everybody-likes-brisket https://wawjr3d.com/talks/everybody-likes-brisket.html"
+  "https://wawjr3d.com/practice/last_substring.html https://wawjr3d.com/practice/last-substring.html"
+  "https://wawjr3d.com/practice/test_suite.html https://wawjr3d.com/practice/test-suite.html"
+  "https://wawjr3d.com/practice/random_coding.html https://wawjr3d.com/practice/random-coding.html"
+  "https://wawjr3d.com/practice/audio_context.html https://wawjr3d.com/practice/audio-context.html"
 )
 
 errors=0
