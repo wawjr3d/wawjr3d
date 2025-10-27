@@ -1,0 +1,16 @@
+name: Validate wawjr3d Redirects
+
+on:
+  schedule:
+    - cron: "0 3 * * *" # Runs nightly at 3 AM UTC
+  workflow_dispatch:    # Allow manual trigger
+
+jobs:
+  validate-redirects:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run redirect validation
+        run: ./validate_redirects.sh
