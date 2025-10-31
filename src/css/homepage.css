@@ -1,6 +1,5 @@
 :root {
   --wawjr3d-header-color: inherit;
-  --tile-shadow: #00000029;
   --url-decoder-icon: url('/images/urldecoder.png');
   --smileys-icon: url('/images/smileys.png');
 }
@@ -8,7 +7,6 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --wawjr3d-header-color: var(--background);
-    --tile-shadow: #000000;
     --url-decoder-icon: url('/images/urldecoder.dark.png');
     --smileys-icon: url('/images/smileys.dark.png');
   }
@@ -43,7 +41,6 @@ h1 {
 
 .home-page-tile {
   padding: 1.5em;
-  /* box-shadow: 1px 1px .5em var(--tile-shadow); */
 }
 
 .home-page-tile-icon {
