@@ -55,7 +55,6 @@ h1 {
 }
 
 .home-page-tile-icon::after {
-  display: none;
   content: "⮕";
   position: absolute;
   top: 5px;
@@ -64,10 +63,19 @@ h1 {
   font-size: 1.5em;
   text-indent: 0;
   text-shadow: 1px 1px #000000;
+  opacity: 0;
+  transform: translateY(-20%);
+  transition: opacity .2s ease, transform .2s ease;
 }
 
 .home-page-tile:hover .home-page-tile-icon::after {
-  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.home-page-tile:hover .home-page-tile-icon::after {
+  opacity: 1;
+  transform: translateY(0); 
 }
 
 .home-page-tile-urldecoder .home-page-tile-icon {
@@ -105,6 +113,7 @@ h1 {
   }
 
   .home-page-tile-icon::after {
-    display: block;
+    opacity: 1;
+    transform: translateY(0);
   }
 }
