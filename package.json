@@ -27,7 +27,7 @@
   "devDependencies": {
     "chai": "^5.1.0",
     "esbuild": "^0.25.4",
-    "express": "^5.1.0",
+    "express": "^5.2.0",
     "mocha": "^10.3.0",
     "mustache": "^4.2.0"
   },
